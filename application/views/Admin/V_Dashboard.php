@@ -67,11 +67,11 @@
 								<p>
 									<span class="number">
 										<?php 
-										if (!empty($current_antrian[1]['antrian'])){
-											echo $current_antrian[1]['antrian'];
-										} else {
-											echo " - ";
-										}	
+										if (is_array($current_antrian) && !empty($current_antrian)) {
+											echo (int)($sisa_antrian*10) ." Menit";
+										  } else {
+											echo "0 menit";
+										  } 
 										?> 
 									</span>
 									<span class="title">Waktu tunggu</span>
@@ -85,14 +85,14 @@
 							$id = '';
 							$point = "";
 							if(!empty($current_antrian[0]['id_antrian'])){
-										$id = $current_antrian[0]['id_antrian'];
-										$point = "";
-									}else{
-										$point =  "disabled";
-									}	
+								$id = $current_antrian[0]['id_antrian'];
+								$point = "";
+							}else{
+								$point =  "disabled";
+							}	
 							
 							?>
-							<a href="<?php echo base_url('DashboardAdmin/skipAntrian/'.$id); ?>" class="btn btn-success btn-large" ><span class="title fa fa-play"></span> &nbsp; Next</a>
+							<a href="<?php echo base_url(); ?>Admin/C_Dashboard/skipAntrian/<?= $id ?>" class="btn btn-success btn-large" <?php echo $point; ?>><span class="title fa fa-play"></span> &nbsp; Next</a>
 						</div>
 					</div>
 				</div>

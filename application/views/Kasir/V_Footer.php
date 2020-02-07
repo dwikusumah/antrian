@@ -43,9 +43,12 @@
 
 		$(document).ready(function(){
 			$('.end_cart').click(function(){
+                var idp = $('#idAntrian').val();
 				$.ajax({
-					url: "<?= base_url('Kasir/kasir/proses_checkout') ?>", 
-					success: function(result){
+                    url: "<?= base_url('Kasir/kasir/proses_checkout') ?>",
+                    method:"POST",
+                    data:{idp:idp}, 
+					success: function(data){
 						alert("Transaksi Berhasil !");
 						window.location="<?= base_url('Kasir/kasir') ?>";
 					}

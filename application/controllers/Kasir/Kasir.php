@@ -30,6 +30,20 @@ class Kasir extends CI_Controller {
 		$this->load->view("Kasir/V_Footer");
 	}
 
+	public function skipAntrian($id) {
+		//$plaintext_string = str_replace(array('-', '_', '~'), array('+', '/', '='), $id);
+		//$plaintext_string = $this->encrypt->decode($plaintext_string);
+		
+		//$id_antrian	= $plaintext_string;
+		
+		if($this->M_admin->skipAntrian($id)) {
+			redirect('Kasir/kasir');
+		} else {
+			$this->session->set_flashdata('error', 'Jadwal berhasil didelete!');
+			redirect('Kasir/kasir');
+		}	
+	}
+
 	public function checkSession(){
 		if (!$this->session->id_user){
 			redirect('Login');
@@ -222,6 +236,8 @@ class Kasir extends CI_Controller {
 	        	  	);
 	        	  	$data_pesan = $this->Kasir_model->transaksi_detail($data);
 					}
+				$idp = $this->input->post('idp');
+				$this->M_admin->skipAntrian($idp);
 				echo "<script> alert('Transaksi berhasil !'); </script>";		  
 			    $this->cart->destroy();
 			    echo $this->show_cart();

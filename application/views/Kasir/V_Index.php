@@ -1,7 +1,30 @@
     <!-- MAIN -->
-
+    <?php 
+        $idp = '';
+        $point = "";
+        if(!empty($current_antrian[0]['id_antrian'])){
+            $idp = $current_antrian[0]['id_antrian'];
+            $point = "";
+        }else{
+            $point =  "disabled";
+        }	
+        
+        ?>
+    <span class="number">
+        <h3>
+            Antrian Saat ini : 
+            <?php 
+                if(!empty($current_antrian[0]['antrian'])){
+                    echo $current_antrian[0]['antrian'];
+                }else{
+                    echo " - ";
+                }	 
+            ?>
+        
+        </h3> <span>
+    <input type="text" id="idAntrian" value="<?= $idp ?>" hidden>
+    <a href="<?php echo base_url(); ?>Kasir/kasir/skipAntrian/<?= $idp ?>" class="btn btn-success btn-large"><span class="title fa fa-play"></span> &nbsp; Next</a>
     <div class="row">
-
         <div class="col">
             <div class="card bg-light mb-3">
                 <div class="card-header"><h3>Transaksi Kasir</h3></div>

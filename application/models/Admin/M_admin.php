@@ -64,11 +64,11 @@ class M_admin extends CI_Model {
 	}
 
 	public function getCurrentAntrian(){
-		$date = date('Y-m-d');
+		// $date = date('Y-m-d');
 		$select = array('*');
 		$this->db->select($select);
 		$this->db->from('tbl_antrian');
-		$this->db->where('tanggal',$date);
+		// $this->db->where('tanggal',$date);
 		$this->db->where('status','0');
 		$this->db->order_by('antrian','asc');
 		
