@@ -22,4 +22,9 @@ class Kasir_model extends CI_Model{
 		return $this->db->insert('tbl_transaksi_detail',$data);
 	}
 
+	public function updateStok($data,$where){
+		$this->db->where($where);
+		$this->db->update('tbl_barang',$data);
+	}
+
 }

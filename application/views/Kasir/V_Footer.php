@@ -9,11 +9,12 @@
             var produk_id    = $(this).data("produkid");
             var produk_nama  = $(this).data("produknama");
             var produk_harga = $(this).data("produkharga");
+            var produk_stok = $(this).data("produkstok");
             var quantity     = $('#' + produk_id).val();
             $.ajax({
                 url : "<?php echo base_url('Kasir/kasir/add_to_cart');?>",
                 method : "POST",
-                data : {produk_id: produk_id, produk_nama: produk_nama, produk_harga: produk_harga, quantity: quantity},
+                data : {produk_id: produk_id, produk_nama: produk_nama, produk_harga: produk_harga, quantity: quantity, produk_stok: produk_stok},
                 success: function(data){
                     $('#detail_cart').html(data);
                 }
@@ -27,7 +28,9 @@
  
         //Hapus Item Cart
         $(document).on('click','.hapus_cart',function(){
-            var row_id=$(this).attr("id"); //mengambil row_id dari artibut id
+            var row_id=$(this).attr("id"); //mengambil row_id dari artibut id            
+            var qtys = $('#qtys').val();
+            var produks = $('#produks').val();
             $.ajax({
                 url : "<?php echo base_url('Kasir/kasir/hapus_cart');?>",
                 method : "POST",

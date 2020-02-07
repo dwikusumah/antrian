@@ -28,7 +28,7 @@
                                 <td id="harga"><?= 'Rp'.number_format($br->harga) ?></td>
                                 <td><input type="number" name="quantity" id="<?= $br->id;?>" min="1" value="1" class="quantity form-control"></td>
                                 <td>
-                                    <buttton class="add_cart btn btn-info" data-produkid="<?= $br->id ?>" data-produknama="<?= $br->nama_barang ?>" data-produkharga="<?= $br->harga ?>">ambil</button>
+                                    <buttton class="add_cart btn btn-info" data-produkid="<?= $br->id ?>" data-produknama="<?= $br->nama_barang ?>" data-produkstok="<?= $br->stok ?>" data-produkharga="<?= $br->harga ?>">ambil</button>
                                 </td>
                             </tr>
                             <?php endforeach ?>
