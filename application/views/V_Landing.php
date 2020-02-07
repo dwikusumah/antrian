@@ -25,7 +25,7 @@
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo base_url('DaftarStaff'); ?>"><i class="material-icons">people</i>Staf</a>
+              <a class="nav-link" href="<?php echo base_url('Login_Staff'); ?>"><i class="material-icons">people</i>Staf</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="<?php echo base_url('JadwalStaff'); ?>"><i class="material-icons">schedule</i>Jadwal</a>

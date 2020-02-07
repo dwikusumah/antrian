@@ -5,7 +5,6 @@ class M_admin extends CI_Model {
 
 	public function __construct() {
 		$this->load->database();
-		$this->load->library('encrypt');
 	}
 
 	
@@ -305,5 +304,12 @@ class M_admin extends CI_Model {
 		$this->db->where('id_antrian',$id);
 		return $this->db->delete('tbl_antrian');
 	}
+
+	// BARANG
+	public function getAllBarang(){
+		return $this->db->get('tbl_barang')->result();
+	}
+
 }
+
 ?>

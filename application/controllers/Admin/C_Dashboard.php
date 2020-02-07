@@ -22,7 +22,7 @@ class C_Dashboard extends CI_Controller {
 		$data['current_antrian'] = $this->M_admin->getCurrentAntrian();
 		$this->checkSession();
 		$this->load->view("V_Header");
-		$this->load->view("Admin/V_Index",$data);
+		$this->load->view("Admin/V_Dashboard",$data);
 		$this->load->view("V_Footer");
 	}
 

@@ -1,3 +1,4 @@
+</div>
 <div class="clearfix"></div>
 		<footer>
 			<div class="container-fluid">
@@ -12,6 +13,6 @@
 	<script type="text/javascript" src="<?php echo base_url('assets/plugins/jqueryui/jquery-ui.min.js'); ?>"></script>
   	<script type="text/javascript" src="<?php echo base_url('assets/js/jquery.dataTables.min.js'); ?>" ></script>
 	<script type="text/javascript" src="<?php echo base_url('assets/vendor/toastr/toastr.min.js'); ?>"></script>
-	
+
 </body>
 </html>

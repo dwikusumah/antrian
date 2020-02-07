@@ -24,6 +24,12 @@ $route['Login_c'] = 'C_Login_c/index';
 $route['Login_c/(:any)'] = 'C_Login_c/$1';
 $route['Login_c/(:any)/(:any)'] = 'C_Login_c/$1/$2';
 
+$route['Login_Staff'] = 'C_Login_Staff/index';
+$route['Login_Staff/(:any)'] = 'C_Login_Staff/$1';
+$route['Login_Staff/(:any)/(:any)'] = 'C_Login_Staff/$1/$2';
+
+$route['Cart'] = 'Kasir/Cart';
+
 $route['Layanan'] = 'Admin/C_Layanan/';
 $route['Layanan/(:any)'] = 'Admin/C_Layanan/$1';
 $route['Layanan/(:any)/(:any)'] = 'Admin/C_Layanan/$1/$2';

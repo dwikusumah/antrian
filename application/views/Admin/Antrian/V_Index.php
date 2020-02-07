@@ -52,8 +52,7 @@
 									$i = 1;
 									if($antrian){
 										foreach ($antrian as $value) {
-											$encrypted_string = $this->encrypt->encode($value['id_antrian']);
-											$id = str_replace(array('+', '/', '='), array('-', '_', '~'), $encrypted_string);
+											$id = $value['id_antrian'];
 											?>
 											<tr>
 												<td><?php echo $i++ . "."; ?></td>

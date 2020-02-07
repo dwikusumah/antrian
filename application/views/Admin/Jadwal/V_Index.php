@@ -55,8 +55,7 @@
 									$i = 1;
 									if($jadwal){
 										foreach ($jadwal as $value) {
-											$encrypted_string = $this->encrypt->encode($value['id_jadwal']);
-											$id = str_replace(array('+', '/', '='), array('-', '_', '~'), $encrypted_string);
+											$id = $value['id_layanan'];
 											?>
 											<tr>
 												<td><?php echo $i++ . "."; ?></td>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 04, 2020 at 03:15 AM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.11
+-- Waktu pembuatan: 07 Feb 2020 pada 09.59
+-- Versi server: 10.4.10-MariaDB
+-- Versi PHP: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_antrian`
+-- Struktur dari tabel `tbl_antrian`
 --
 
 CREATE TABLE `tbl_antrian` (
@@ -36,7 +36,7 @@ CREATE TABLE `tbl_antrian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_antrian`
+-- Dumping data untuk tabel `tbl_antrian`
 --
 
 INSERT INTO `tbl_antrian` (`id_antrian`, `tanggal`, `antrian`, `status`) VALUES
@@ -69,7 +69,31 @@ INSERT INTO `tbl_antrian` (`id_antrian`, `tanggal`, `antrian`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_hubungi`
+-- Struktur dari tabel `tbl_barang`
+--
+
+CREATE TABLE `tbl_barang` (
+  `id` int(6) NOT NULL,
+  `nama_barang` varchar(255) NOT NULL,
+  `stok` int(4) NOT NULL,
+  `jenis_barang` varchar(255) NOT NULL,
+  `harga` int(7) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tbl_barang`
+--
+
+INSERT INTO `tbl_barang` (`id`, `nama_barang`, `stok`, `jenis_barang`, `harga`) VALUES
+(123456, 'Kuaci', 20, 'snack', 8000),
+(234567, 'Roti Tawar', 5, 'makanan', 10000),
+(435435, 'Good Time', 15, 'Snack', 7000),
+(546464, 'Coca cola', 30, 'Minuman', 4500);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_hubungi`
 --
 
 CREATE TABLE `tbl_hubungi` (
@@ -82,7 +106,7 @@ CREATE TABLE `tbl_hubungi` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_jadwal`
+-- Struktur dari tabel `tbl_jadwal`
 --
 
 CREATE TABLE `tbl_jadwal` (
@@ -96,7 +120,7 @@ CREATE TABLE `tbl_jadwal` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_jadwal`
+-- Dumping data untuk tabel `tbl_jadwal`
 --
 
 INSERT INTO `tbl_jadwal` (`id_jadwal`, `id_staff`, `bagian`, `hari_pertama`, `hari_terakhir`, `jam_pertama`, `jam_terakhir`) VALUES
@@ -111,7 +135,7 @@ INSERT INTO `tbl_jadwal` (`id_jadwal`, `id_staff`, `bagian`, `hari_pertama`, `ha
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_jamkes`
+-- Struktur dari tabel `tbl_jamkes`
 --
 
 CREATE TABLE `tbl_jamkes` (
@@ -121,7 +145,7 @@ CREATE TABLE `tbl_jamkes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_jamkes`
+-- Dumping data untuk tabel `tbl_jamkes`
 --
 
 INSERT INTO `tbl_jamkes` (`id_jamkes`, `singkatan`, `nama_jamkes`) VALUES
@@ -130,7 +154,7 @@ INSERT INTO `tbl_jamkes` (`id_jamkes`, `singkatan`, `nama_jamkes`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_layanan`
+-- Struktur dari tabel `tbl_layanan`
 --
 
 CREATE TABLE `tbl_layanan` (
@@ -141,17 +165,17 @@ CREATE TABLE `tbl_layanan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_layanan`
+-- Dumping data untuk tabel `tbl_layanan`
 --
 
 INSERT INTO `tbl_layanan` (`id_layanan`, `nama`, `jenis_layanan`, `code_layanan`) VALUES
-(1, 'Costumer Service', 'Membantu menyelesaikan masalah costumer', 'CS'),
+(1, 'Kasir', 'Melakukan dan Membantu Customer Bertransaksi', 'KSR'),
 (2, 'Teler', 'Membantu costumer untuk menabung, mengambil uang, mentransfer uang, dll.', 'TL');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_pendaftaran`
+-- Struktur dari tabel `tbl_pendaftaran`
 --
 
 CREATE TABLE `tbl_pendaftaran` (
@@ -168,7 +192,7 @@ CREATE TABLE `tbl_pendaftaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_pendaftaran`
+-- Dumping data untuk tabel `tbl_pendaftaran`
 --
 
 INSERT INTO `tbl_pendaftaran` (`id_daftar`, `username_c`, `password_c`, `id_antrian`, `nama`, `alamat`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `NIK`) VALUES
@@ -182,7 +206,7 @@ INSERT INTO `tbl_pendaftaran` (`id_daftar`, `username_c`, `password_c`, `id_antr
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_staff`
+-- Struktur dari tabel `tbl_staff`
 --
 
 CREATE TABLE `tbl_staff` (
@@ -198,7 +222,7 @@ CREATE TABLE `tbl_staff` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_staff`
+-- Dumping data untuk tabel `tbl_staff`
 --
 
 INSERT INTO `tbl_staff` (`id_staff`, `nama_staff`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `jenis_kelamin`, `status`, `pendidikan_akhir`, `id_layanan`) VALUES
@@ -213,7 +237,68 @@ INSERT INTO `tbl_staff` (`id_staff`, `nama_staff`, `tempat_lahir`, `tanggal_lahi
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_user`
+-- Struktur dari tabel `tbl_transaksi`
+--
+
+CREATE TABLE `tbl_transaksi` (
+  `id_transaksi` varchar(10) NOT NULL,
+  `tanggal` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `username` varchar(20) NOT NULL,
+  `total` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tbl_transaksi`
+--
+
+INSERT INTO `tbl_transaksi` (`id_transaksi`, `tanggal`, `username`, `total`) VALUES
+('TRK00001', '2020-02-07 06:07:44', 'kasir', 30500),
+('TRK00002', '2020-02-07 07:27:56', 'kasir', 8000),
+('TRK00003', '2020-02-07 07:31:01', 'kasir', 21500),
+('TRK00004', '2020-02-07 07:32:38', 'kasir', 18000),
+('TRK00005', '2020-02-07 07:45:55', 'kasir', 28000),
+('TRK00006', '2020-02-07 07:54:19', 'kasir', 23000),
+('TRK00007', '2020-02-07 07:55:13', 'kasir', 17000);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_transaksi_detail`
+--
+
+CREATE TABLE `tbl_transaksi_detail` (
+  `id` int(3) NOT NULL,
+  `id_transaksi` varchar(10) NOT NULL,
+  `id_barang` int(3) NOT NULL,
+  `jumlah` int(3) NOT NULL,
+  `hargasatuan` int(10) NOT NULL,
+  `total` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tbl_transaksi_detail`
+--
+
+INSERT INTO `tbl_transaksi_detail` (`id`, `id_transaksi`, `id_barang`, `jumlah`, `hargasatuan`, `total`) VALUES
+(3, 'TRK00001', 123456, 1, 8000, 8000),
+(4, 'TRK00001', 546464, 5, 4500, 22500),
+(5, 'TRK00002', 123456, 1, 8000, 8000),
+(6, 'TRK00003', 234567, 1, 10000, 10000),
+(7, 'TRK00003', 435435, 1, 7000, 7000),
+(8, 'TRK00003', 546464, 1, 4500, 4500),
+(9, 'TRK00004', 123456, 1, 8000, 8000),
+(10, 'TRK00004', 234567, 1, 10000, 10000),
+(11, 'TRK00005', 123456, 1, 8000, 8000),
+(12, 'TRK00005', 234567, 2, 10000, 20000),
+(13, 'TRK00006', 123456, 2, 8000, 16000),
+(14, 'TRK00006', 435435, 1, 7000, 7000),
+(15, 'TRK00007', 234567, 1, 10000, 10000),
+(16, 'TRK00007', 435435, 1, 7000, 7000);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_user`
 --
 
 CREATE TABLE `tbl_user` (
@@ -225,116 +310,142 @@ CREATE TABLE `tbl_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_user`
+-- Dumping data untuk tabel `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`id_user`, `username`, `password`, `nama`, `akses`) VALUES
 (1, 'adexe', '8d93b7e9ffa0c1549772f7d2082d7b98', 'alifianadexe', 'Admin'),
-(4, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'Admin');
+(4, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'Admin'),
+(5, 'kasir', 'c7911af3adbd12a035b289556d96470a', 'Test', 'Kasir');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `tbl_antrian`
+-- Indeks untuk tabel `tbl_antrian`
 --
 ALTER TABLE `tbl_antrian`
   ADD PRIMARY KEY (`id_antrian`);
 
 --
--- Indexes for table `tbl_hubungi`
+-- Indeks untuk tabel `tbl_barang`
+--
+ALTER TABLE `tbl_barang`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Indeks untuk tabel `tbl_hubungi`
 --
 ALTER TABLE `tbl_hubungi`
   ADD PRIMARY KEY (`id_hubungi`);
 
 --
--- Indexes for table `tbl_jadwal`
+-- Indeks untuk tabel `tbl_jadwal`
 --
 ALTER TABLE `tbl_jadwal`
   ADD PRIMARY KEY (`id_jadwal`);
 
 --
--- Indexes for table `tbl_jamkes`
+-- Indeks untuk tabel `tbl_jamkes`
 --
 ALTER TABLE `tbl_jamkes`
   ADD PRIMARY KEY (`id_jamkes`);
 
 --
--- Indexes for table `tbl_layanan`
+-- Indeks untuk tabel `tbl_layanan`
 --
 ALTER TABLE `tbl_layanan`
   ADD PRIMARY KEY (`id_layanan`);
 
 --
--- Indexes for table `tbl_pendaftaran`
+-- Indeks untuk tabel `tbl_pendaftaran`
 --
 ALTER TABLE `tbl_pendaftaran`
   ADD PRIMARY KEY (`id_daftar`);
 
 --
--- Indexes for table `tbl_staff`
+-- Indeks untuk tabel `tbl_staff`
 --
 ALTER TABLE `tbl_staff`
   ADD PRIMARY KEY (`id_staff`);
 
 --
--- Indexes for table `tbl_user`
+-- Indeks untuk tabel `tbl_transaksi`
+--
+ALTER TABLE `tbl_transaksi`
+  ADD PRIMARY KEY (`id_transaksi`);
+
+--
+-- Indeks untuk tabel `tbl_transaksi_detail`
+--
+ALTER TABLE `tbl_transaksi_detail`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `tbl_antrian`
+-- AUTO_INCREMENT untuk tabel `tbl_antrian`
 --
 ALTER TABLE `tbl_antrian`
   MODIFY `id_antrian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
--- AUTO_INCREMENT for table `tbl_hubungi`
+-- AUTO_INCREMENT untuk tabel `tbl_hubungi`
 --
 ALTER TABLE `tbl_hubungi`
   MODIFY `id_hubungi` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_jadwal`
+-- AUTO_INCREMENT untuk tabel `tbl_jadwal`
 --
 ALTER TABLE `tbl_jadwal`
   MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `tbl_jamkes`
+-- AUTO_INCREMENT untuk tabel `tbl_jamkes`
 --
 ALTER TABLE `tbl_jamkes`
   MODIFY `id_jamkes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_layanan`
+-- AUTO_INCREMENT untuk tabel `tbl_layanan`
 --
 ALTER TABLE `tbl_layanan`
   MODIFY `id_layanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tbl_pendaftaran`
+-- AUTO_INCREMENT untuk tabel `tbl_pendaftaran`
 --
 ALTER TABLE `tbl_pendaftaran`
   MODIFY `id_daftar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT for table `tbl_staff`
+-- AUTO_INCREMENT untuk tabel `tbl_staff`
 --
 ALTER TABLE `tbl_staff`
   MODIFY `id_staff` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `tbl_user`
+-- AUTO_INCREMENT untuk tabel `tbl_transaksi_detail`
+--
+ALTER TABLE `tbl_transaksi_detail`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

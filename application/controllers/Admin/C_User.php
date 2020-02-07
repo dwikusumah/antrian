@@ -58,10 +58,8 @@ class C_User extends CI_Controller {
 /* ----------------------- VIEW LOAD DETAIL -------------------------*/
 
 public function userDetail($id = false) {
-		$plaintext_string = str_replace(array('-', '_', '~'), array('+', '/', '='), $id);
-		$plaintext_string = $this->encrypt->decode($plaintext_string);
-		$data['id_user']	= $plaintext_string;
-		$data['list'] = $this->M_admin->getUser($plaintext_string);
+		$data['id_user'] = $id;
+		$data['list'] = $this->M_admin->getUser($id);
 		$data['id'] = $id;
 		$this->load->view("V_Header");
 		$this->load->view("Admin/User/V_Detail",$data);

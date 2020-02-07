@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class C_Login extends CI_Controller {
+class C_Login_Staff extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
@@ -16,7 +16,10 @@ class C_Login extends CI_Controller {
 	}
 
 	public function index() {
-		$this->load->view("V_Login");
+		if ($this->session->userdata('akses')=='masuk') {
+			redirect('Kasir/kasir');
+		}
+		$this->load->view("V_Login_Staff");
 	}
 
 	public function authlogin() {
@@ -26,20 +29,27 @@ class C_Login extends CI_Controller {
 		if($hasil = $this->M_login->checkUser($username)) {
 			if($data = $this->M_login->checkPassword($username,$password)) {
 				$akses = $this->M_login->checkAccountType($username,$password);
-				if ($akses == "Admin") {
+				if ($akses == "Kasir") {
 					$this->session->set_userdata('id',$data[0]);
-					redirect('DashboardAdmin');
+					$this->session->set_userdata('akses','masuk');
+					$this->session->set_userdata('username',$username);
+					redirect('Kasir/kasir');
 				} else {
 					$this->session->set_flashdata('error','Akun ini tidak memiliki izin akses.');
-					redirect('Login');
+					redirect('Login_Staff');
 				}
 			} else {
 				$this->session->set_flashdata('error','Maaf, kata sandi anda salah!');
-				redirect('Login');
+				redirect('Login_Staff');
 			}
 		} else {
 			$this->session->set_flashdata('error','Maaf, akun ini belum terdaftar!');
-			redirect('Login');	
+			redirect('Login_Staff');	
 		}
+	}
+
+	public function logout(){
+		$this->session->sess_destroy();
+		redirect('Login_Staff');
 	}
 }

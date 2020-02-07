@@ -44,8 +44,7 @@
 									$i = 1;
 									if ($pegawai){
 										foreach ($pegawai as $value) {
-											$encrypted_string = $this->encrypt->encode($value['id_staff']);
-											$id = str_replace(array('+', '/', '='), array('-', '_', '~'), $encrypted_string);
+											$id = $value['id_staff'];
 											?>
 											<tr>
 												<td><?php echo $i++ . "."; ?></td>

@@ -43,8 +43,7 @@
 									$i = 1;
 									if($layanan){
 										foreach ($layanan as $value) {
-											$encrypted_string = $this->encrypt->encode($value['id_layanan']);
-											$id = str_replace(array('+', '/', '='), array('-', '_', '~'), $encrypted_string);
+											$id = $value['id_layanan'];
 											?>
 											<tr>
 												<td align="center"><?php echo $i++ . "."; ?></td>

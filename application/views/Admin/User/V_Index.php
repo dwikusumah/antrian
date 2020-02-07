@@ -54,8 +54,7 @@
 									$i = 1;
 									if($user){
 										foreach ($user as $value) {
-											$encrypted_string = $this->encrypt->encode($value['id_user']);
-											$id = str_replace(array('+', '/', '='), array('-', '_', '~'), $encrypted_string);
+											$id = $value['id_user'];
 											?>
 											<tr>
 												<td><?php echo $i++ . "."; ?></td>

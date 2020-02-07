@@ -1,0 +1,19 @@
+.navbar-nav {
+    margin-left: auto;
+}
+
+.navbar-nav .btn {
+    margin-left: 20px;
+}
+
+.nav-link {
+    margin-left: 20px;
+}
+
+.card {
+    margin: 40px auto;
+}
+
+table td {
+    text-align: center;
+}

@@ -3,7 +3,6 @@ class M_login_c extends CI_Model {
 
 	public function __construct() {
 		$this->load->database();
-		$this->load->library('encrypt');
 	}
 
 	public function checkUser($data) {
