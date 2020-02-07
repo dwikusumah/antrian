@@ -49,7 +49,8 @@ class Kasir extends CI_Controller {
             'name' => $this->input->post('produk_nama'), 
             'price' => $this->input->post('produk_harga'), 
             'qty' => $this->input->post('quantity'), 
-        );
+            'stock' => $this->input->post('produk_stok') 
+		);
         $this->cart->insert($data);
         echo $this->show_cart(); //tampilkan cart setelah added
     }
@@ -202,6 +203,16 @@ class Kasir extends CI_Controller {
 			      $data_pesan = $this->Kasir_model->transaksi($pesan);	
 			      $cart = $this->cart->contents();
 			      foreach($cart as $item){
+					  $stok = $item['stock'] - $item['qty'];
+					  $where = array(
+						  'id' => $item['id']
+					  );
+					  $data1 = array(
+						  'stok' => $stok
+					  );
+
+					  $this->Kasir_model->updateStok($data1,$where);
+
 			      	$data = array(
 			      		'id_transaksi' => $id_transaksi,
 	          			'id_barang' => $item['id'],

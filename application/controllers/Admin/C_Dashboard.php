@@ -20,7 +20,10 @@ class C_Dashboard extends CI_Controller {
 		$data['total_antrian'] = $this->M_admin->getCountAntrian();
 		$data['sisa_antrian'] = $this->M_admin->getCountSisaAntrian();
 		$data['current_antrian'] = $this->M_admin->getCurrentAntrian();
+<<<<<<< HEAD
 		// $this->checkSession();
+=======
+>>>>>>> 3757aa545d0099b42aeeccbacf2524bef7304e8c
 		$this->load->view("V_Header");
 		$this->load->view("Admin/V_Dashboard",$data);
 		$this->load->view("V_Footer");
@@ -33,10 +36,17 @@ class C_Dashboard extends CI_Controller {
 	}	
 
 	public function skipAntrian($id) {
+<<<<<<< HEAD
 		//$plaintext_string = str_replace(array('-', '_', '~'), array('+', '/', '='), $id);
 		//$plaintext_string = $this->encrypt->decode($plaintext_string);
 		
 		//$id_antrian	= $plaintext_string;
+=======
+		// $plaintext_string = str_replace(array('-', '_', '~'), array('+', '/', '='), $id);
+		// $plaintext_string = $this->encrypt->decode($plaintext_string);
+		
+		// $id_antrian	= $plaintext_string;
+>>>>>>> 3757aa545d0099b42aeeccbacf2524bef7304e8c
 		
 		if($this->M_admin->skipAntrian($id)) {
 			redirect('Dashboard/index');
