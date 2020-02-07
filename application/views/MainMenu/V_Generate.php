@@ -60,7 +60,7 @@
           <?php endforeach ?>
           <div class="row">
             <div class="col-md-4 ml-auto mr-auto">
-              <button class="btn button btn-success" onclick="printToImage()">Simpan sebagai dokumen</button>
+              <!-- <button class="btn button btn-success" onclick="printToImage()">Simpan sebagai dokumen</button> -->
               <button class="btn button btn-warning" onclick="window.print();">Cetak</button>
             </div>
           </div>

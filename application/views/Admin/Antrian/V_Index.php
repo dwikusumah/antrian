@@ -43,7 +43,7 @@
 										<th>No.</th>
 										<th>Nomor Antrian</th>
 										<th>Tanggal</th>
-										<th>Nama</th>
+										<th>Status</th>
 										<th style="text-align: center;">Opsi</th>
 									</tr>
 								</thead>
@@ -58,11 +58,18 @@
 												<td><?php echo $i++ . "."; ?></td>
 												<td><?php echo $value['antrian']; ?></td>
 												<td><?php echo $value['tanggal']; ?></td>
-												<td><?php echo $value['nama_user']; ?></td>
+												<td>
+													<?php 
+														if ($value['status']=="0") {
+															echo "Antrian Belum Terpanggil";
+														}else{
+															echo "Antrian Sudah Terpanggil";
+														}
+													?>
+												</td>
 												<td align="center">
 													<!-- <a href="<?php echo base_url('Daftar/generate/'.$id); ?>" class="btn btn-sm btn-primary"><span class="fa fa-info"></span></a> -->
 													<a href="<?php echo base_url('Antrian/deleteAntrian/'.$id); ?>" class="btn btn-sm btn-danger"><span class="fa fa-trash"></span></a>
-													<button class="btn btn-sm btn-success" onclick="skipThis('<?php echo base_url('Antrian/skipAntrian/'.$id); ?>');" ><span class="fa fa-hand-o-right"></span></button> 
 												</td>
 											</tr>
 											<?php

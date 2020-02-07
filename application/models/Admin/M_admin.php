@@ -206,15 +206,7 @@ class M_admin extends CI_Model {
 	}
 
 	public function selectAntrian(){
-		$this->db->select('* , tbl_pendaftaran.nama nama_user');
-		$this->db->from('tbl_antrian');
-		$this->db->join('tbl_pendaftaran','tbl_antrian.id_antrian = tbl_pendaftaran.id_antrian', 'outter');
-		$this->db->where('tbl_antrian.status != 1');
-		$this->db->order_by('tanggal','desc');
-		$this->db->order_by('antrian','asc');
-		
-		
-		$data = $this->db->get();
+		$data = $this->db->get('tbl_antrian');
 		if($data->num_rows() > 0){
 			return $data->result_array();
 		}else{

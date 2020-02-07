@@ -37,8 +37,7 @@
 								<div class="form-group">
 									<label for="akses">Hak Akses</label>
 									<select name="akses" class="form-control">
-										<option value="Admin">Admin</option>
-										<option value="Admin">Kasir</option>
+										<option value="Kasir">Kasir</option>
 									</select>
 								</div>
 							</div>

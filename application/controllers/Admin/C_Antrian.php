@@ -182,10 +182,10 @@ public function antrianEdit($id = false) {
 
 
 	public function deleteAntrian($id) {
-		$plaintext_string = str_replace(array('-', '_', '~'), array('+', '/', '='), $id);
-		$plaintext_string = $this->encrypt->decode($plaintext_string);
-		$id_staff	= $plaintext_string;
-		if($this->M_admin->deleteAntrian($id_staff)) {
+		// $plaintext_string = str_replace(array('-', '_', '~'), array('+', '/', '='), $id);
+		// $plaintext_string = $this->encrypt->decode($plaintext_string);
+		// $id_staff	= $plaintext_string;
+		if($this->M_admin->deleteAntrian($id)) {
 			$this->session->set_flashdata('success', 'Jadwal berhasil didelete!');
 			redirect('Antrian/index/delete');
 		} else {

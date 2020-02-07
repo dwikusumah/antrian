@@ -55,7 +55,9 @@
 									if($user){
 										foreach ($user as $value) {
 											$id = $value['id_user'];
+											if($value['akses']!="Admin"):
 											?>
+
 											<tr>
 												<td><?php echo $i++ . "."; ?></td>
 												<td><?php echo $value['nama']; ?></td>
@@ -63,10 +65,11 @@
 												<td align="center">
 													<!-- <a href="<?php echo base_url('User/userDetail/'.$id); ?>" class="btn btn-sm btn-primary"><span class="fa fa-info"></span></a> -->
 													<a href="<?php echo base_url('User/userEdit/'.$id); ?>" class="btn btn-sm btn-warning"><span class="fa fa-pencil"></span></a>
-													<button class="btn btn-sm btn-danger" onclick="deleteThis('<?php echo base_url('User/deleteUser/'.$id); ?>');" ><span class="fa fa-trash"></span></button> 
+													<a href="<?php echo base_url('User/deleteUser/'.$id); ?>" class="btn btn-sm btn-danger"><span class="fa fa-trash"></span></a>
 												</td>
 											</tr>
 											<?php
+											endif;
 										}
 									}
 									?>

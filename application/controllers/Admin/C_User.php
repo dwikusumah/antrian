@@ -83,7 +83,7 @@ public function userEdit($id = false) {
 	public function insertUser() {
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
-		$password = md5(md5(md5(strrev($password))));
+		$password = md5($password);
 		$nama = $this->input->post('nama');
 		$akses = $this->input->post('akses');
 		$data  = array(
@@ -132,10 +132,10 @@ public function userEdit($id = false) {
 /*-=-=-=-=-=-=-=-=-=--=-=-=-=-=- DELETE SECTION -=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-= */
 
 public function deleteUser($id) {
-		$plaintext_string = str_replace(array('-', '_', '~'), array('+', '/', '='), $id);
-		$plaintext_string = $this->encrypt->decode($plaintext_string);
-		$id_staff	= $plaintext_string;
-		if($this->M_admin->deleteUser($id_staff)) {
+		// $plaintext_string = str_replace(array('-', '_', '~'), array('+', '/', '='), $id);
+		// $plaintext_string = $this->encrypt->decode($plaintext_string);
+		// $id_staff	= $plaintext_string;
+		if($this->M_admin->deleteUser($id)) {
 			$this->session->set_flashdata('success', 'User berhasil didelete!');
 			redirect('User/index');
 		} else {
