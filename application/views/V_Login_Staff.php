@@ -23,15 +23,15 @@
 					<div class="left">
 						<div class="content">
 							<div class="header">
-								<p class="lead">Masuk ke Dashboard Administrator</p>
+								<p class="lead">Masuk ke Menu Kasir</p>
 							</div>
 							<form class="form-auth-small" method="POST" action="<?php echo base_url('Login_Staff/authlogin'); ?>">
 								<div class="form-group">
-									<label for="signin-email" class="control-label sr-only">Nama pengguna</label>
+									<label for="signin-email" class="control-label sr-only">Username</label>
 									<input type="text" class="form-control" id="signin-email" placeholder="Nama pengguna" name="username" required=""> 
 								</div>
 								<div class="form-group">
-									<label for="signin-password" class="control-label sr-only">Kata sandi</label>
+									<label for="signin-password" class="control-label sr-only">Password</label>
 									<input type="password" class="form-control" id="signin-password" placeholder="Kata sandi" name="password" required=""> 
 								</div>
 								<div class="form-group clearfix"></div>
@@ -43,7 +43,7 @@
 					<div class="right">
 						<div class="overlay"></div>
 						<div class="content text">
-							<h1 class="heading">Aplikasi Antrian</h1>
+							<h1 class="heading">Toko Koperasi Kartika Wirotama</h1>
 							<p></p>
 						</div>
 					</div>

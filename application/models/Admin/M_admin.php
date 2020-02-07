@@ -37,11 +37,11 @@ class M_admin extends CI_Model {
 	/*-=--=-=-=-=-=-=--=-=-= SELECT MAIN SECTION -=-=-=-=-=-=-=-=-=-=-=-= */
 
 	public function getCountAntrian(){
-		$date = date('Y-m-d');
+		// $date = date('Y-m-d');
 		$select = array('*');
 		$this->db->select($select);
 		$this->db->from('tbl_antrian');
-		$this->db->where('tanggal',$date);
+		// $this->db->where('tanggal',$date);
 		$this->db->group_by('antrian');
 
 		$data = $this->db->get();
@@ -50,11 +50,11 @@ class M_admin extends CI_Model {
 	}
 
 	public function getCountSisaAntrian(){
-		$date = date('Y-m-d');
+		// $date = date('Y-m-d');
 		$select = array('*');
 		$this->db->select($select);
 		$this->db->from('tbl_antrian');
-		$this->db->where('tanggal',$date);
+		// $this->db->where('tanggal',$date);
 		$this->db->where('status','0');
 		$this->db->group_by('antrian');
 
@@ -223,18 +223,30 @@ class M_admin extends CI_Model {
 
 	}
 
-	public function getAntrian($id){		
-		$this->db->select('*');
-		$this->db->from('tbl_antrian');
-		$this->db->join('tbl_pendaftaran','tbl_antrian.id_antrian = tbl_pendaftaran.id_antrian', 'outter');
-		$this->db->where('tbl_antrian.id_antrian',$id);
-		$data = $this->db->get();
+	public function getAntrian(){		
+		// $this->db->select('*');
+		// $this->db->from('tbl_antrian');
+		// $this->db->join('tbl_pendaftaran','tbl_antrian.id_antrian = tbl_pendaftaran.id_antrian', 'outter');
+		// $this->db->where('tbl_antrian.id_antrian',$id);
+		$data = $this->db->query('SELECT * FROM tbl_antrian ASC ');
 		if($data->num_rows() > 0){
 			return $data->result();
 		}else{
 			return false;
 		}
-	
+	}
+
+	public function getAntrianDaftar(){		
+		// $this->db->select('*');
+		// $this->db->from('tbl_antrian');
+		// $this->db->join('tbl_pendaftaran','tbl_antrian.id_antrian = tbl_pendaftaran.id_antrian', 'outter');
+		// $this->db->where('tbl_antrian.id_antrian',$id);
+		$data = $this->db->query('SELECT * FROM tbl_antrian ORDER BY tanggal DESC LIMIT 1 ');
+		if($data->num_rows() > 0){
+			return $data->result();
+		}else{
+			return false;
+		}
 	}
 
 	/* -=-=-=-=-=-=-=-=-=-=- UPDATE SECTION -=-=-=-=-=-=-=-=-=-=- */

@@ -43,7 +43,7 @@
 					<div class="right">
 						<div class="overlay"></div>
 						<div class="content text">
-							<h1 class="heading">Aplikasi Antrian</h1>
+							<h1 class="heading">Toko Koperasi Kartika Wirotama</h1>
 							<p></p>
 						</div>
 					</div>

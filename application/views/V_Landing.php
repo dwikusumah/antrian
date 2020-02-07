@@ -19,7 +19,7 @@
 <body class="landing-page sidebar-collapse">
   <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
     <div class="container">
-      <div class="navbar-translate"><a class="navbar-brand" href="#">Aplikasi Antrian</a></div>
+      <div class="navbar-translate"><a class="navbar-brand" href="#">Toko Koperasi Kartika Wirotama</a></div>
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto"> </ul>
         <div class="collapse navbar-collapse">
@@ -27,11 +27,11 @@
             <li class="nav-item">
               <a class="nav-link" href="<?php echo base_url('Login_Staff'); ?>"><i class="material-icons">people</i>Staf</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="<?php echo base_url('JadwalStaff'); ?>"><i class="material-icons">schedule</i>Jadwal</a>
-            </li>
+            </li> -->
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo base_url('Login'); ?>"><i class="material-icons">people</i>Login Staff</a>
+              <a class="nav-link" href="<?php echo base_url('Login'); ?>"><i class="material-icons">people</i>Admin</a>
             </li>
           </ul>
         </div>
@@ -188,7 +188,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-12 text-center" style="margin-top: 40px;"><a href="<?php echo base_url('Login_c'); ?>" class="btn btn-danger btn-raised btn-lg">Daftar</a></div>
+        <div class="col-md-12 text-center" style="margin-top: 40px;"><a href="<?php echo base_url('Generate'); ?>" class="btn btn-danger btn-raised btn-lg">Daftar</a></div>
       </div>
     </div>
   </div>

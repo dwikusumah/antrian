@@ -71,10 +71,10 @@ public function layananDetail($id = false) {
 }
 
 public function layananEdit($id = false) {
-		$plaintext_string = str_replace(array('-', '_', '~'), array('+', '/', '='), $id);
-		$plaintext_string = $this->encrypt->decode($plaintext_string);
-		$data['id_layanan']	= $plaintext_string;
-		$data['list'] = $this->M_admin->getLayanan($plaintext_string);
+		//$plaintext_string = str_replace(array('-', '_', '~'), array('+', '/', '='), $id);
+		//$plaintext_string = $this->encrypt->decode($plaintext_string);
+		//$data['id_layanan']	= $plaintext_string;
+		$data['list'] = $this->M_admin->getLayanan($id);
 		$this->load->view("V_Header");
 		$this->load->view("Admin/Layanan/V_Edit",$data);
 		$this->load->view("V_Footer");

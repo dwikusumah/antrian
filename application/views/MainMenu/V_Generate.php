@@ -39,13 +39,13 @@
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url(''); ?>C_Login_c/logout"> <i class="material-icons"></i> Logout </a>
+            <a class="nav-link" href='LandingPage'> <i class="material-icons"></i> Kembali </a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-  <?php foreach ($list as $ls) :?>
+  
     <div class="main main-raised" id="section-to-print" style="margin-top: 1%;">
       <div class="container">
         <div class="section text-center">
@@ -55,7 +55,9 @@
               <hr> </div>
           </div>
           <div class="col-md-8 ml-auto mr-auto">
+          <?php foreach ($list as $ls) :?>
             <h1 class="title"><?php echo $ls->antrian; ?></h1> </div>
+          <?php endforeach ?>
           <div class="row">
             <div class="col-md-4 ml-auto mr-auto">
               <button class="btn button btn-success" onclick="printToImage()">Simpan sebagai dokumen</button>
@@ -65,7 +67,6 @@
         </div>
       </div>
     </div>
-    <?php endforeach ?>
       
       <script src="<?php echo base_url('assets/js/core/jquery.min.js'); ?>" type="text/javascript"></script>
       <script src="<?php echo base_url('assets/js/core/popper.min.js'); ?>" type="text/javascript"></script>

@@ -45,17 +45,17 @@
 								<li><a style="text-align: center">Tidak ada notifikasi</a></li>
 							</ul>
 						</li> -->
-						<li class="dropdown">
+						<!-- <li class="dropdown">
 							<a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-question-circle"></i> <span>Bantuan</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 							<ul class="dropdown-menu">
 								<li><a href="">Petunjuk &amp; Informasi</a></li>
 							</ul>
-						</li>
+						</li> -->
 						<li class="dropdown">
 							<a href="" class="dropdown-toggle" data-toggle="dropdown"><img src="<?php echo base_url('assets/img/user-placeholder.webp'); ?>" class="img-circle" alt="Avatar"> <span><?php echo $this->session->userdata('nama'); ?></span><i class="icon-submenu lnr lnr-chevron-down"></i></a>
 							<ul class="dropdown-menu">
-								<li><a href="<?php echo base_url('ProfilAdmin'); ?>"><i class="lnr lnr-user"></i><span>Profil Saya</span></a></li>
-								<li><a href="<?php echo base_url('PengaturanAdmin'); ?>"><i class="lnr lnr-cog"></i><span>Pengaturan</span></a></li>
+								<!-- <li><a href="<?php echo base_url('ProfilAdmin'); ?>"><i class="lnr lnr-user"></i><span>Profil Saya</span></a></li>
+								<li><a href="<?php echo base_url('PengaturanAdmin'); ?>"><i class="lnr lnr-cog"></i><span>Pengaturan</span></a></li> -->
 								<li><a href="<?php echo base_url('LandingPage'); ?>"><i class="lnr lnr-exit"></i> <span>Keluar</span></a></li>
 							</ul>
 						</li>

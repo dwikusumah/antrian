@@ -59,13 +59,13 @@ class M_mainmenu extends CI_Model {
 		}
 	}
 
-	public function countAntrian($daftar = false){
+	public function countAntrianS($daftar = false){
 
-		$date = date('Y-m-d');
+		// $date = date('Y-m-d');
 
 		$this->db->select('antrian,tanggal');
 		$this->db->from('tbl_antrian');
-		$this->db->where('tanggal',$date);
+		// $this->db->where('tanggal');
 		$this->db->where('status != 1');
 		if($daftar){
 			$this->db->order_by('antrian','desc');	
@@ -84,6 +84,53 @@ class M_mainmenu extends CI_Model {
 		}
 	}
 
+	public function countAntrian($daftar = false){
+
+		// $date = date('Y-m-d');
+
+		// $this->db->select('antrian,tanggal');
+		// $this->db->from('tbl_antrian');
+		// $this->db->where('tanggal',$date);
+		// $this->db->where('status != 1');
+		// if($daftar){
+		// 	$this->db->order_by('antrian','desc');	
+		// }else{
+		// 	$this->db->order_by('antrian','asc');
+		// }
+		
+		$this->db->select('antrian,tanggal');
+		$this->db->from('tbl_antrian');
+		$this->db->order_by('tanggal','desc');
+		
+		$data = $this->db->get();
+		if($data->num_rows() > 0){
+			return $data->result_array();
+		}else{
+			return false;	
+		}
+	}
+	public function countAntrianA($daftar = false){
+
+		// $date = date('Y-m-d');
+
+		// $this->db->select('antrian,tanggal');
+		// $this->db->from('tbl_antrian');
+		// $this->db->where('tanggal',$date);
+		// $this->db->where('status != 1');
+		// if($daftar){
+		// 	$this->db->order_by('antrian','desc');	
+		// }else{
+		// 	$this->db->order_by('antrian','asc');
+		// }
+		
+		$data = $this->db->query("SELECT max(antrian) as maxKode FROM tbl_antrian");
+		if($data->num_rows() > 0){
+			return $data->result_array();
+		}else{
+			return false;	
+		}
+	}
+
 	public function insertDaftar($data){
 		return $this->db->insert('tbl_pendaftaran',$data);
 	}
@@ -95,7 +142,6 @@ class M_mainmenu extends CI_Model {
 
 	public function insertAntrian($data){
 		$this->db->insert('tbl_antrian',$data);
-		 return $this->db->insert_id();
 	}
 
 	public function insertHubungi($data){

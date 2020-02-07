@@ -21,17 +21,83 @@ class C_Generate extends CI_Controller {
 		//$data['total_antrian'] = $this->M_admin->getCountAntrian();
 		//$data['sisa_antrian'] = $this->M_admin->getCountSisaAntrian();
 		//$data['current_antrian'] = $this->M_admin->getCurrentAntrian();
-		$antrian = $this->getAntrian();
-		$data_antrian = $antrian;
-		$this->M_mainmenu->update_antrian($data_antrian);
-		$data_n = $this->M_login_c->checkPassword($this->session->userdata('username_c'),$this->session->userdata('password_c'));
-		foreach ($data_n as $dn) {
-			$id = $dn['id_antrian'];
+		// $data = $this->getAntrian();
+		// echo $data;
+		$antrian = '';
+		
+		if($data = $this->M_mainmenu->countAntrian(true)){
+			$query  = $this->db->order_by('antrian','desc')->limit(1)->get('tbl_antrian');
+			if ($query->num_rows()>0) {
+				$result = $query->result();
+				foreach ($result as $r) {
+					$kodeawal = $r->antrian;
+				}
+			}
+
+			$kodeawal = substr($kodeawal,1,3);
+			$kodeawal = (int)$kodeawal + 1;
+			if($kodeawal<10){
+				$antrian='A00'.$kodeawal;
+			}else if($kodeawal > 9 && $kodeawal <=99){
+				$antrian='A0'.$kodeawal;
+			}else{
+				$antrian='A0'.$kodeawal;
+			}
+
+			// $no_urut = (int) substr($data[0]['antrian'],1,3);
+			// if ($no_urut==9) {
+			// 	# code...
+			// }
+			// echo "<script>alert(".strlen($no_urut).");</script>";
+			// echo "<script>alert(".$no_urut.");</script>";
+			// if(strlen($no_urut) == 1){
+			// 	$antrian = "A00".((int) $no_urut + 1);
+			// }else if(strlen($no_urut) == 2){
+			// 	$antrian = "A0".((int) $no_urut + 1);
+			// }else{
+			// 	$antrian = "A".((int) $no_urut + 1);
+			// }
+
+			// $char = "A";
+			// $antrian = $char.sprintf("%03s", $no_urut);
+
+
+			$data = array(
+				'antrian' => $antrian
+			);
+
+			// echo "<pre>";
+			// print_r($data);
+			// exit();
+			$this->M_mainmenu->insertAntrian($data);
+			$data['list'] = $this->M_admin->getAntrianDaftar();
+			//$this->load->view("V_Header");
+			$this->load->view("MainMenu/V_Generate",$data);
+			//$this->load->view("V_Footer");
+			
+		}else{
+			$antrian = 'A001';
+
+			$data = array(
+				'antrian' => $antrian
+			);
+
+			$antrian = $this->M_mainmenu->insertAntrian($data);
+			$data['list'] = $this->M_admin->getAntrianDaftar();
+			//$this->load->view("V_Header");
+			$this->load->view("MainMenu/V_Generate",$data);
+			//$this->load->view("V_Footer");
 		}
-		$data['list'] = $this->M_admin->getAntrian($id);
+		// $data_antrian = $antrian;
+		// $this->M_mainmenu->update_antrian($data_antrian);
+		// $data_n = $this->M_login_c->checkPassword($this->session->userdata('username_c'),$this->session->userdata('password_c'));
+		// foreach ($data_n as $dn) {
+		// 	$id = $dn['id_antrian'];
+		// }
+		// $data['list'] = $this->M_admin->getAntrian($id);
 		//$this->checkSession();
 		//$this->load->view("V_Header");
-		$this->load->view("MainMenu/V_Generate",$data);
+		// $this->load->view("MainMenu/V_Generate",$data);
 		//$this->load->view("V_Footer");
 	}
 

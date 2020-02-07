@@ -20,7 +20,7 @@ class C_Dashboard extends CI_Controller {
 		$data['total_antrian'] = $this->M_admin->getCountAntrian();
 		$data['sisa_antrian'] = $this->M_admin->getCountSisaAntrian();
 		$data['current_antrian'] = $this->M_admin->getCurrentAntrian();
-		$this->checkSession();
+		// $this->checkSession();
 		$this->load->view("V_Header");
 		$this->load->view("Admin/V_Dashboard",$data);
 		$this->load->view("V_Footer");
@@ -33,12 +33,12 @@ class C_Dashboard extends CI_Controller {
 	}	
 
 	public function skipAntrian($id) {
-		$plaintext_string = str_replace(array('-', '_', '~'), array('+', '/', '='), $id);
-		$plaintext_string = $this->encrypt->decode($plaintext_string);
+		//$plaintext_string = str_replace(array('-', '_', '~'), array('+', '/', '='), $id);
+		//$plaintext_string = $this->encrypt->decode($plaintext_string);
 		
-		$id_antrian	= $plaintext_string;
+		//$id_antrian	= $plaintext_string;
 		
-		if($this->M_admin->skipAntrian($id_antrian)) {
+		if($this->M_admin->skipAntrian($id)) {
 			redirect('Dashboard/index');
 		} else {
 			$this->session->set_flashdata('error', 'Jadwal berhasil didelete!');

@@ -67,10 +67,10 @@ public function userDetail($id = false) {
 }
 
 public function userEdit($id = false) {
-		$plaintext_string = str_replace(array('-', '_', '~'), array('+', '/', '='), $id);
-		$plaintext_string = $this->encrypt->decode($plaintext_string);
-		$data['id_user']	= $plaintext_string;
-		$data['list'] = $this->M_admin->getUser($plaintext_string);
+		//$plaintext_string = str_replace(array('-', '_', '~'), array('+', '/', '='), $id);
+		//$plaintext_string = $this->encrypt->decode($plaintext_string);
+		$data['id_user']	= $id;
+		$data['list'] = $this->M_admin->getUser($id);
 		$this->load->view("V_Header");
 		$this->load->view("Admin/User/V_Edit",$data);
 		$this->load->view("V_Footer");

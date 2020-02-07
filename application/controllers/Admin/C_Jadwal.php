@@ -50,11 +50,11 @@ public function jadwalDetail($id = false) {
 }
 
 public function jadwalEdit($id = false) {
-		$plaintext_string = str_replace(array('-', '_', '~'), array('+', '/', '='), $id);
-		$plaintext_string = $this->encrypt->decode($plaintext_string);
+		//$plaintext_string = str_replace(array('-', '_', '~'), array('+', '/', '='), $id);
+		//$plaintext_string = $this->encrypt->decode($plaintext_string);
 		
-		$data['id_jadwal']	= $plaintext_string;
-		$data['list'] = $this->M_admin->getJadwal($plaintext_string);
+		$data['id_jadwal']	= $id;
+		$data['list'] = $this->M_admin->getJadwal($id);
 		$data['staff'] = $this->M_admin->selectPegawai();
 
 		// echo "<pre>";
