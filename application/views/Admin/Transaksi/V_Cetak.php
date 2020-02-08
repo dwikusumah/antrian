@@ -11,10 +11,15 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    <?php 
-        $bulan = $_GET['bulan'];
-        $tahun = $_GET['tahun'];
-    ?>
+    <!-- <?php 
+        if (isset($_GET['bulan']) && isset($_GET['tahun'])) {
+            $bulan = $_GET['bulan'];
+            $tahun = $_GET['tahun'];
+        }else if(!isset($_GET['bulan']) && isset($_GET['tahun'])){
+            //$bulan = $_GET['bulan'];
+            $tahun = $_GET['tahun'];
+        }
+    ?> -->
     <div class="container">
         <h3 class="mb-5 mt-5 text-center">Transaksi Keseluruhan</h3>
         <table class="table dt-head-center">
@@ -28,25 +33,45 @@
                 </tr>
             </thead>
             <tbody>
-                <?php 
-                if (isset($_GET['bulan']) || isset($_GET['tahun'])):
+            <?php 
+                if (isset($_GET['bulan']) && isset($_GET['tahun'])){
                     $bulan = $_GET['bulan'];
                     $tahun = $_GET['tahun'];
                     $transaksi = $this->db->query("SELECT * FROM tbl_transaksi WHERE year(tanggal)='$tahun' AND month(tanggal)='$bulan'")->result();
-                $no = 1; foreach($transaksi as $trk):  ?>
+                    $no = 1; foreach($transaksi as $trk):  ?>
                     <tr>
                         <td><?= $no ?></td>
                         <td><?= $trk->id_transaksi ?></td>
                         <td><?= $trk->tanggal ?></td>
                         <td><?= $trk->username ?></td>
                         <td><?= 'Rp. '.number_format($trk->total) ?></td>
+                        <!-- <td><a href="<?= base_url('DataTransaksi/deleteTransaksi/'.$trk->id_transaksi) ?>" class="btn btn-danger" onclick="return confirm('Anda yakin mau menghapus item ini ?')"><i class="lnr lnr-trash" ></i></a></td> -->
                     </tr>
-                <?php $no++; endforeach; endif; ?>
+                <?php $no++; endforeach;  
+                }else if(isset($_GET['tahun']) && !isset($_GET['bulan'])){
+                    //$bulan = $_GET['bulan'];
+                    $tahun = $_GET['tahun'];
+                    $transaksi = $this->db->query("SELECT * FROM tbl_transaksi WHERE year(tanggal)='$tahun'")->result();
+                    $no = 1; foreach($transaksi as $trk):  ?>
+                    <tr>
+                        <td><?= $no ?></td>
+                        <td><?= $trk->id_transaksi ?></td>
+                        <td><?= $trk->tanggal ?></td>
+                        <td><?= $trk->username ?></td>
+                        <td><?= 'Rp. '.number_format($trk->total) ?></td>
+                        <!-- <td><a href="<?= base_url('DataTransaksi/deleteTransaksi/'.$trk->id_transaksi) ?>" class="btn btn-danger" onclick="return confirm('Anda yakin mau menghapus item ini ?')"><i class="lnr lnr-trash" ></i></a></td> -->
+                    </tr>
+                
+                <?php $no++; endforeach; }
+                ?>
             </tbody>
         </table>
         <br>
         <?php
-        $detail = $this->db->query("SELECT * FROM tbl_transaksi INNER JOIN tbl_transaksi_detail USING (id_transaksi) WHERE year(tanggal)='$tahun' AND month(tanggal)='$bulan'")->result();
+        if (isset($_GET['bulan']) && isset($_GET['tahun'])){
+            $bulan = $_GET['bulan'];
+            $tahun = $_GET['tahun'];
+            $detail = $this->db->query("SELECT * FROM tbl_transaksi INNER JOIN tbl_transaksi_detail USING (id_transaksi) WHERE year(tanggal)='$tahun' AND month(tanggal)='$bulan'")->result();
             $jmlh = 0;
             $total = 0;
             foreach ($transaksi as $trk) {
@@ -58,6 +83,22 @@
                 $total += $jmlh;
             }
             echo "<h3>Total Barang Yang Terjual : ".$total." Barang </h3>";
+        }else if(!isset($_GET['bulan']) && isset($_GET['tahun'])){
+            //$bulan = $_GET['bulan'];
+            $tahun = $_GET['tahun'];
+            $detail = $this->db->query("SELECT * FROM tbl_transaksi INNER JOIN tbl_transaksi_detail USING (id_transaksi) WHERE year(tanggal)='$tahun'")->result();
+            $jmlh = 0;
+            $total = 0;
+            foreach ($transaksi as $trk) {
+                foreach ($detail as $dtl) {
+                    if($dtl->id_transaksi==$trk->id_transaksi){
+                        $jmlh += $dtl->jumlah;
+                    }
+                }
+                $total += $jmlh;
+            }
+            echo "<h3>Total Barang Yang Terjual : ".$total." Barang </h3>";
+        }
         ?>
     </div>
     <!-- Optional JavaScript -->
