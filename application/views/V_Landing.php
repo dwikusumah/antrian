@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>Landing Page</title>
+  <title>Toko Koperasi Kartika Wirotama</title>
   <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url('assets/img/apple-icon.webp'); ?>">
   <link rel="icon" type="image/png" sizes="96x96" href="<?php echo base_url('assets/img/favicon.webp'); ?>">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/material-icons.css'); ?>" />
@@ -25,13 +25,13 @@
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo base_url('Login_Staff'); ?>"><i class="material-icons">people</i>Staf</a>
+              <a class="nav-link" href="<?php echo base_url('Login_Staff'); ?>"><i class="material-icons">shopping cart</i>Staff</a>
             </li>
             <!-- <li class="nav-item">
               <a class="nav-link" href="<?php echo base_url('JadwalStaff'); ?>"><i class="material-icons">schedule</i>Jadwal</a>
             </li> -->
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo base_url('Login'); ?>"><i class="material-icons">people</i>Admin</a>
+              <a class="nav-link" href="<?php echo base_url('Login'); ?>"><i class="material-icons">person</i>Admin</a>
             </li>
           </ul>
         </div>
@@ -188,7 +188,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-12 text-center" style="margin-top: 40px;"><a href="<?php echo base_url('Generate'); ?>" class="btn btn-danger btn-raised btn-lg">Daftar</a></div>
+        <div class="col-md-12 text-center" style="margin-top: 40px;"><a href="<?php echo base_url('Generate'); ?>" class="btn btn-danger btn-raised btn-lg">Ambil Antrian</a></div>
       </div>
     </div>
   </div>

@@ -80,9 +80,9 @@
                 </table>
                 <h5 class="font-weight-bold mb-2">Masukan Uang</h5>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" id="bayar" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" value="0">
+                    <input type="text" class="form-control" id="bayar" placeholder="Masukan Jumlah Uang" aria-label="Recipient's username" aria-describedby="basic-addon2">
                     <div class="input-group-append">
-                        <span class="input-group-text" id="basic-addon2"><button class="kembalian badge bagde-secondary float-right mb-3" > Click </button></span>
+                        <span class="input-group-text" id="basic-addon2"><button class="kembalian badge bagde-secondary btn btn-primary float-right mb-1" > Proses </button></span>
                     </div>
                 </div>
                 <h5 class="font-weight-bold mt-3" >Kembalian : <span id="naon"></span> </h5>

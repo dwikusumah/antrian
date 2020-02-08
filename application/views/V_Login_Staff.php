@@ -28,11 +28,11 @@
 							<form class="form-auth-small" method="POST" action="<?php echo base_url('Login_Staff/authlogin'); ?>">
 								<div class="form-group">
 									<label for="signin-email" class="control-label sr-only">Username</label>
-									<input type="text" class="form-control" id="signin-email" placeholder="Nama pengguna" name="username" required=""> 
+									<input type="text" class="form-control" id="signin-email" placeholder="Username" name="username" required=""> 
 								</div>
 								<div class="form-group">
 									<label for="signin-password" class="control-label sr-only">Password</label>
-									<input type="password" class="form-control" id="signin-password" placeholder="Kata sandi" name="password" required=""> 
+									<input type="password" class="form-control" id="signin-password" placeholder="Password" name="password" required=""> 
 								</div>
 								<div class="form-group clearfix"></div>
 								<input type="submit" class="btn btn-primary btn-lg btn-block" value="Masuk"/>
