@@ -20,15 +20,11 @@
 					<h3 class="page-title">Daftar Barang</h3>
 				</div>
 				<div class="col-md-2" align="right">
-<<<<<<< HEAD
-        			<button class="btn btn-raised btn-primary" onclick="window.print();" ><span class="fa fa-plus" style="margin-right: 10px;"></span>Cetak</button>
-=======
 					<?php 
 						if (isset($_GET['bulan']) || isset($_GET['tahun'])) :
 					?>
 					<a href="<?= base_url() ?>DataTransaksi/cetak?bulan=<?= $_GET['bulan'] ?>&tahun=<?= $_GET['tahun'] ?>" class="btn btn-raised btn-primary" ><span class="fa fa-print" style="margin-right: 10px;"></span>CETAK</a>
 						<?php endif; ?>
->>>>>>> 21927a5b523969cffba27dcd9d199e5eda27808c
 				</div>
 				<div class="col-md-2" align="right">
 				</div>
