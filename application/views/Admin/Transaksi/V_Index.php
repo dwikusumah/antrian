@@ -6,7 +6,7 @@
 					<h3 class="page-title">Daftar Barang</h3>
 				</div>
 				<div class="col-md-2" align="right">
-        			<button class="btn btn-raised btn-primary" onclick="window.print();" ><span class="fa fa-plus" style="margin-right: 10px;"></span>Tambah</button>
+        			<button class="btn btn-raised btn-primary" onclick="window.print();" ><span class="fa fa-plus" style="margin-right: 10px;"></span>Cetak</button>
 				</div>
 				<div class="col-md-2" align="right">
 				</div>
