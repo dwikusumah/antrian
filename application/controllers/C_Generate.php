@@ -26,13 +26,7 @@ class C_Generate extends CI_Controller {
 		$antrian = '';
 		
 		if($data = $this->M_mainmenu->countAntrian(true)){
-			$query  = $this->db->order_by('antrian','desc')->limit(1)->get('tbl_antrian');
-			if ($query->num_rows()>0) {
-				$result = $query->result();
-				foreach ($result as $r) {
-					$kodeawal = $r->antrian;
-				}
-			}
+			$kodeawal = $data[0]['antrian'];
 
 			$kodeawal = substr($kodeawal,1,3);
 			$kodeawal = (int)$kodeawal + 1;
@@ -61,8 +55,9 @@ class C_Generate extends CI_Controller {
 			// $char = "A";
 			// $antrian = $char.sprintf("%03s", $no_urut);
 
-
+			$tanggal = date('Y-m-d');
 			$data = array(
+				'tanggal' => $tanggal,
 				'antrian' => $antrian
 			);
 
@@ -77,8 +72,9 @@ class C_Generate extends CI_Controller {
 			
 		}else{
 			$antrian = 'A001';
-
+			$tanggal = date('Y-m-d');
 			$data = array(
+				'tanggal' => $tanggal,
 				'antrian' => $antrian
 			);
 

@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class C_Layanan extends CI_Controller {
+class C_DataBarang extends CI_Controller {
 
 /* ----------------------- VIEW LOAD ----------------------------*/
 	
@@ -40,17 +40,19 @@ class C_Layanan extends CI_Controller {
 		} else {
 			$data['status'] = '';
 		}
-		// generate all data layanan
-		$data['layanan'] = $this->M_admin->selectLayanan();
+		// generate all data jadwal
+		$data['barang'] = $this->M_admin->selectBarang();
 		$this->load->view("V_Header");
-		$this->load->view("Admin/Layanan/V_Index",$data);
+		$this->load->view("Admin/V_PengaturanAdmin");
+		$this->load->view("Admin/Barang/V_index",$data);
 		$this->load->view("V_Footer");
 	}
 
 
-	public function inputLayanan(){
+	public function inputBarang(){
 		$this->load->view("V_Header");
-		$this->load->view("Admin/Layanan/V_Input");
+		$this->load->view("Admin/V_PengaturanAdmin");
+		$this->load->view("Admin/Barang/V_Input");
 		$this->load->view("V_Footer");	
 	}
 
@@ -70,69 +72,78 @@ public function layananDetail($id = false) {
 
 }
 
-public function layananEdit($id = false) {
+public function editBarang($id = false) {
 		//$plaintext_string = str_replace(array('-', '_', '~'), array('+', '/', '='), $id);
 		//$plaintext_string = $this->encrypt->decode($plaintext_string);
 		//$data['id_layanan']	= $plaintext_string;
-		$data['list'] = $this->M_admin->getLayanan($id);
+		$data['id_user']	= $id;
+		$data['list'] = $this->M_admin->getBarang($id);
 		$this->load->view("V_Header");
-		$this->load->view("Admin/Layanan/V_Edit",$data);
+		$this->load->view("Admin/V_PengaturanAdmin");
+		$this->load->view("Admin/Barang/V_Edit",$data);
 		$this->load->view("V_Footer");
 }
 
 /*------------------------ VIEW LOAD DETAIL END ----------------------*/
 
 /* ----------------------- INSERT SECTION ----------------------------*/
-	public function insertLayanan() {
-		$nama = $this->input->post('nama');
-		$layanan_medis = $this->input->post('layanan_medis');
-		$info_medis = $this->input->post('info_medis');
+	public function insertBarang() {
+		$id = $this->input->post('id');
+		$nama_barang = $this->input->post('nama_barang');
+		$stok = $this->input->post('stok');
+		$jenis_barang = $this->input->post('jenis_barang');
+		$harga = $this->input->post('harga');
 		$data  = array(
-				'nama' => $nama, 
-				'layanan_medis' => $layanan_medis,
-				'info_medis' => $info_medis
+				'id' => $id,
+				'nama_barang' => $nama_barang, 
+				'stok' => $stok,
+				'jenis_barang' => $jenis_barang,
+				'harga' => $harga
 				);
 		// echo "<pre>";
 		// print_r($data);
 		// exit();
-		if($this->M_admin->insertLayanan($data)) {
-			redirect('Layanan/index/simpan');
+		if($this->M_admin->insertBarang($data)) {
+			redirect('DataBarang/index/simpan');
 		} else {
-			redirect('Layanan/index/error');
+			redirect('DataBarang/index/error');
 		}
 	}
 
 /*------------------------------- UPDATE SECTION --------------------------------*/
 
-	public function updateLayanan(){
-		$nama = $this->input->post('nama');
-		$layanan_medis = $this->input->post('layanan_medis');
-		$info_medis = $this->input->post('info_medis');
+	public function updateBarang(){
+		$nama_barang = $this->input->post('nama_barang');
+		$stok = $this->input->post('stok');
+		$jenis_barang = $this->input->post('jenis_barang');
+		$harga = $this->input->post('harga');
 		$data  = array(
-				'nama' => $nama, 
-				'layanan_medis' => $layanan_medis,
-				'info_medis' => $info_medis
+				'nama_barang' => $nama_barang, 
+				'stok' => $stok,
+				'jenis_barang' => $jenis_barang,
+				'harga' => $harga
 				);
+		$id = $this->input->post('id');
 		// echo "<pre>";
 		// print_r($data);
 		// exit();
-		if($this->M_admin->updateLayanan($id,$data)) {
-			redirect('Layanan/index/update');
+		if($this->M_admin->updateBarang($id,$data)) {
+			redirect('DataBarang/index/update');
 		} else {
-			redirect('Layanan/index/error');
+			redirect('DataBarang/index/error');
 		}	
 	}
 
 /*-=-=-=-=-=-=-=-=-=--=-=-=-=-=- DELETE SECTION -=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-= */
 
-public function deleteLayanan($id) {
-		$plaintext_string = str_replace(array('-', '_', '~'), array('+', '/', '='), $id);
-		$plaintext_string = $this->encrypt->decode($plaintext_string);
-		$id_staff	= $plaintext_string;
-		if($this->M_admin->deleteLayanan($id_dok)) {
-			redirect('Layanan/index/delete');
+public function deleteBarang($id) {
+		// $plaintext_string = str_replace(array('-', '_', '~'), array('+', '/', '='), $id);
+		// $plaintext_string = $this->encrypt->decode($plaintext_string);
+		// $id_staff	= $plaintext_string;
+		if($this->M_admin->deleteBarang($id)) {
+			redirect('DataBarang/index/delete');
 		} else {
-			redirect('Layanan/index/error');
+			redirect('DataBarang/index/error');
 		}	
 	}
 }
