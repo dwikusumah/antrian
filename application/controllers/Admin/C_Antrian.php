@@ -31,7 +31,6 @@ class C_Antrian extends CI_Controller {
 		// print_r($data);
 		// exit();
 		$this->load->view("V_Header");
-		$this->load->view("Admin/V_PengaturanAdmin");
 		$this->load->view("Admin/Antrian/V_Index",$data);
 		$this->load->view("V_Footer");
 	}

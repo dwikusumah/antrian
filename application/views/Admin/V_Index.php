@@ -51,7 +51,7 @@
 									<span class="number">
 										<?php 
 										if (!empty($current_antrian[1]['antrian'])){
-											echo $current_antrian[1]['antrian'];
+											// echo $current_antrian[1]['antrian'];
 										} else {
 											echo " - ";
 										}	

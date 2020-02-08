@@ -43,7 +43,6 @@ class C_DataBarang extends CI_Controller {
 		// generate all data jadwal
 		$data['barang'] = $this->M_admin->selectBarang();
 		$this->load->view("V_Header");
-		$this->load->view("Admin/V_PengaturanAdmin");
 		$this->load->view("Admin/Barang/V_index",$data);
 		$this->load->view("V_Footer");
 	}
@@ -51,7 +50,6 @@ class C_DataBarang extends CI_Controller {
 
 	public function inputBarang(){
 		$this->load->view("V_Header");
-		$this->load->view("Admin/V_PengaturanAdmin");
 		$this->load->view("Admin/Barang/V_Input");
 		$this->load->view("V_Footer");	
 	}
@@ -79,7 +77,6 @@ public function editBarang($id = false) {
 		$data['id_user']	= $id;
 		$data['list'] = $this->M_admin->getBarang($id);
 		$this->load->view("V_Header");
-		$this->load->view("Admin/V_PengaturanAdmin");
 		$this->load->view("Admin/Barang/V_Edit",$data);
 		$this->load->view("V_Footer");
 }
