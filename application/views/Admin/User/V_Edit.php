@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div id="sidebar-nav" class="sidebar">
 	<div class="sidebar-scroll">
 		<nav>
@@ -14,6 +15,8 @@
 		</nav>
 	</div>
 </div>
+=======
+>>>>>>> 4f3adf314780a0d95705c6a15088a03c78cd6c9b
 <div class="main">
 	<div class="main-content">
 		<div class="container-fluid">

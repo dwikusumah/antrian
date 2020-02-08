@@ -43,12 +43,14 @@ class C_User extends CI_Controller {
 		// generate all data user
 		$data['user'] = $this->M_admin->selectUser();
 		$this->load->view("V_Header");
+		$this->load->view("Admin/V_PengaturanAdmin");
 		$this->load->view("Admin/User/V_Index",$data);
 		$this->load->view("V_Footer");
 	}
 
 	public function inputUser(){
 		$this->load->view("V_Header");
+		$this->load->view("Admin/V_PengaturanAdmin");
 		$this->load->view("Admin/User/V_Input");
 		$this->load->view("V_Footer");	
 	}
@@ -72,6 +74,7 @@ public function userEdit($id = false) {
 		$data['id_user']	= $id;
 		$data['list'] = $this->M_admin->getUser($id);
 		$this->load->view("V_Header");
+		$this->load->view("Admin/V_PengaturanAdmin");
 		$this->load->view("Admin/User/V_Edit",$data);
 		$this->load->view("V_Footer");
 }

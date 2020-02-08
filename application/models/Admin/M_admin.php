@@ -34,14 +34,18 @@ class M_admin extends CI_Model {
 		return $this->db->insert('tbl_jamkes',$data);
 	}
 
+	public function insertBarang($data){
+		return $this->db->insert('tbl_barang',$data);
+	}
+
 	/*-=--=-=-=-=-=-=--=-=-= SELECT MAIN SECTION -=-=-=-=-=-=-=-=-=-=-=-= */
 
 	public function getCountAntrian(){
-		// $date = date('Y-m-d');
+		$date = date('Y-m-d');
 		$select = array('*');
 		$this->db->select($select);
 		$this->db->from('tbl_antrian');
-		// $this->db->where('tanggal',$date);
+		$this->db->where('tanggal',$date);
 		$this->db->group_by('antrian');
 
 		$data = $this->db->get();
@@ -50,11 +54,11 @@ class M_admin extends CI_Model {
 	}
 
 	public function getCountSisaAntrian(){
-		// $date = date('Y-m-d');
+		$date = date('Y-m-d');
 		$select = array('*');
 		$this->db->select($select);
 		$this->db->from('tbl_antrian');
-		// $this->db->where('tanggal',$date);
+		$this->db->where('tanggal',$date);
 		$this->db->where('status','0');
 		$this->db->group_by('antrian');
 
@@ -64,7 +68,7 @@ class M_admin extends CI_Model {
 	}
 
 	public function getCurrentAntrian(){
-		// $date = date('Y-m-d');
+		$date = date('Y-m-d');
 		$select = array('*');
 		$this->db->select($select);
 		$this->db->from('tbl_antrian');
@@ -81,6 +85,23 @@ class M_admin extends CI_Model {
 
 
 	/*-=--=-=-=-=-=-=--=-=-= SELECT SECTION -=-=-=-=-=-=-=-=-=-=-=-= */
+
+	public function selectBarang(){
+		$this->db->order_by('jenis_barang');
+		return $this->db->get('tbl_barang')->result();
+	}
+
+	public function getBarang($id){
+		$this->db->where('id',$id);
+		$data = $this->db->get('tbl_barang');
+		if($data->num_rows() > 0){
+			return $data->result_array();
+		}else{
+			return false;
+		}
+	}
+
+
 	public function selectPegawai(){
 		$this->db->select('tbl_staff.*,tbl_layanan.*');;
 		$this->db->from('tbl_staff');
@@ -141,13 +162,13 @@ class M_admin extends CI_Model {
 		}	
 	}
 
-	public function selectJadwal(){
-		$this->db->select('tbl_jadwal.*,tbl_staff.*');;
-		$this->db->from('tbl_jadwal');
-		$this->db->join('tbl_staff','tbl_staff.id_staff = tbl_jadwal.id_staff', 'inner');
-		$data = $this->db->get();
+	public function selectTransaksi(){
+		// $this->db->select('tbl_jadwal.*,tbl_staff.*');;
+		// $this->db->from('tbl_jadwal');
+		// $this->db->join('tbl_staff','tbl_staff.id_staff = tbl_jadwal.id_staff', 'inner');
+		$data = $this->db->get('tbl_transaksi');
 		if($data->num_rows() > 0){
-			return $data->result_array();
+			return $data->result();
 		}else{
 			return false;
 		}
@@ -252,6 +273,11 @@ class M_admin extends CI_Model {
 		return $this->db->update('tbl_layanan',$data);
 	}
 
+	public function updateBarang($id,$data){
+		$this->db->where('id',$id);
+		return $this->db->update('tbl_barang',$data);
+	}
+
 	public function updateUser($id,$data){
 		$this->db->where('id_user',$id);
 		return $this->db->update('tbl_user',$data);
@@ -309,7 +335,22 @@ class M_admin extends CI_Model {
 		return $this->db->delete('tbl_antrian');
 	}
 
-	// BARANG
+	public function deleteBarang($id){
+		$this->db->where('id',$id);
+		return $this->db->delete('tbl_barang');
+	}
+
+	public function deleteTransaksi($id){
+		$this->db->where('id_transaksi',$id);
+		return $this->db->delete('tbl_transaksi');
+	}
+
+	public function deleteTransaksiDetail($id){
+		$this->db->where('id_transaksi',$id);
+		$this->db->delete('tbl_transaksi_detail');
+	}
+
+
 	public function getAllBarang(){
 		return $this->db->get('tbl_barang')->result();
 	}

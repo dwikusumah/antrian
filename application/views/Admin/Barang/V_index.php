@@ -3,7 +3,10 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-10">
-					<h3 class="page-title">Daftar Antrian</h3>
+					<h3 class="page-title">Daftar Barang</h3>
+				</div>
+				<div class="col-md-2" align="right">
+        			<a href="<?php echo base_url('DataBarang/inputBarang'); ?>" class="btn btn-raised btn-primary"><span class="fa fa-plus" style="margin-right: 10px;"></span>Tambah</a>
 				</div>
 				<div class="col-md-2" align="right">
 				</div>
@@ -27,41 +30,25 @@
 								<thead>
 									<tr>
 										<th>No.</th>
-										<th>Nomor Antrian</th>
-										<th>Tanggal</th>
-										<th>Status</th>
+										<th>Nama Barang</th>
+										<th>Jenis Barang</th>
+										<th>Stok</th>
+										<th>Harga</th>
 										<th style="text-align: center;">Opsi</th>
 									</tr>
 								</thead>
 								<tbody>
-									<?php 
-									$i = 1;
-									if($antrian){
-										foreach ($antrian as $value) {
-											$id = $value['id_antrian'];
-											?>
-											<tr>
-												<td><?php echo $i++ . "."; ?></td>
-												<td><?php echo $value['antrian']; ?></td>
-												<td><?php echo $value['tanggal']; ?></td>
-												<td>
-													<?php 
-														if ($value['status']=="0") {
-															echo "Antrian Belum Terpanggil";
-														}else{
-															echo "Antrian Sudah Terpanggil";
-														}
-													?>
-												</td>
-												<td align="center">
-													<!-- <a href="<?php echo base_url('Daftar/generate/'.$id); ?>" class="btn btn-sm btn-primary"><span class="fa fa-info"></span></a> -->
-													<a href="<?php echo base_url('Antrian/deleteAntrian/'.$id); ?>" class="btn btn-sm btn-danger"><span class="fa fa-trash"></span></a>
-												</td>
-											</tr>
-											<?php
-										}
-									}
-									?>
+									<?php $no = 1; foreach($barang as $brg):  ?>
+										<tr>
+											<td><?= $no ?></td>
+											<td><?= $brg->nama_barang ?></td>
+											<td><?= $brg->jenis_barang ?></td>
+											<td><?= $brg->stok ?></td>
+											<td><?= 'Rp. '.number_format($brg->harga) ?></td>
+											<td class="text-center"><a href="<?= base_url('DataBarang/editBarang/'.$brg->id) ?>" class="btn btn-warning"><i class="lnr lnr-pencil"></i></a>
+											<a href="<?= base_url('DataBarang/deleteBarang/'.$brg->id) ?>" class="btn btn-danger" onclick="return confirm('Anda yakin mau menghapus item ini ?')"><i class="lnr lnr-trash" ></i></a></td>
+										</tr>
+									<?php $no++; endforeach ?>
 								</tbody>
 							</table>
 						</div>

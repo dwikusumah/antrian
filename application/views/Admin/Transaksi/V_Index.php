@@ -3,7 +3,10 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-10">
-					<h3 class="page-title">Daftar Antrian</h3>
+					<h3 class="page-title">Daftar Barang</h3>
+				</div>
+				<div class="col-md-2" align="right">
+        			<button class="btn btn-raised btn-primary" onclick="window.print();" ><span class="fa fa-plus" style="margin-right: 10px;"></span>Tambah</button>
 				</div>
 				<div class="col-md-2" align="right">
 				</div>
@@ -23,45 +26,28 @@
 					<?php } ?>
 					<div class="panel">
 						<div class="panel-body">
-							<table id="doctor-table" class="table">
+							<table class="table dt-head-center">
 								<thead>
 									<tr>
 										<th>No.</th>
-										<th>Nomor Antrian</th>
+										<th>ID Transaksi</th>
 										<th>Tanggal</th>
-										<th>Status</th>
-										<th style="text-align: center;">Opsi</th>
+										<th>Username</th>
+										<th>Total Transaksi</th>
+										<th>Opsi</th>
 									</tr>
 								</thead>
 								<tbody>
-									<?php 
-									$i = 1;
-									if($antrian){
-										foreach ($antrian as $value) {
-											$id = $value['id_antrian'];
-											?>
-											<tr>
-												<td><?php echo $i++ . "."; ?></td>
-												<td><?php echo $value['antrian']; ?></td>
-												<td><?php echo $value['tanggal']; ?></td>
-												<td>
-													<?php 
-														if ($value['status']=="0") {
-															echo "Antrian Belum Terpanggil";
-														}else{
-															echo "Antrian Sudah Terpanggil";
-														}
-													?>
-												</td>
-												<td align="center">
-													<!-- <a href="<?php echo base_url('Daftar/generate/'.$id); ?>" class="btn btn-sm btn-primary"><span class="fa fa-info"></span></a> -->
-													<a href="<?php echo base_url('Antrian/deleteAntrian/'.$id); ?>" class="btn btn-sm btn-danger"><span class="fa fa-trash"></span></a>
-												</td>
-											</tr>
-											<?php
-										}
-									}
-									?>
+									<?php $no = 1; foreach($transaksi as $trk):  ?>
+										<tr>
+											<td><?= $no ?></td>
+											<td><?= $trk->id_transaksi ?></td>
+											<td><?= $trk->tanggal ?></td>
+											<td><?= $trk->username ?></td>
+											<td><?= 'Rp. '.number_format($trk->total) ?></td>
+											<td><a href="<?= base_url('DataTransaksi/deleteTransaksi/'.$trk->id_transaksi) ?>" class="btn btn-danger" onclick="return confirm('Anda yakin mau menghapus item ini ?')"><i class="lnr lnr-trash" ></i></a></td>
+										</tr>
+									<?php $no++; endforeach ?>
 								</tbody>
 							</table>
 						</div>

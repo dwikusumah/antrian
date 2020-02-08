@@ -30,17 +30,17 @@ $route['Login_Staff/(:any)/(:any)'] = 'C_Login_Staff/$1/$2';
 
 $route['Cart'] = 'Kasir/Cart';
 
-$route['Layanan'] = 'Admin/C_Layanan/';
-$route['Layanan/(:any)'] = 'Admin/C_Layanan/$1';
-$route['Layanan/(:any)/(:any)'] = 'Admin/C_Layanan/$1/$2';
+$route['DataBarang'] = 'Admin/C_DataBarang/';
+$route['DataBarang/(:any)'] = 'Admin/C_DataBarang/$1';
+$route['DataBarang/(:any)/(:any)'] = 'Admin/C_DataBarang/$1/$2';
 
 $route['User'] = 'Admin/C_User/';
 $route['User/(:any)'] = 'Admin/C_User/$1';
 $route['User/(:any)/(:any)'] = 'Admin/C_User/$1/$2';
 
-$route['Jadwal'] = 'Admin/C_Jadwal/';
-$route['Jadwal/(:any)'] = 'Admin/C_Jadwal/$1';
-$route['Jadwal/(:any)/(:any)'] = 'Admin/C_Jadwal/$1/$2';
+$route['DataTransaksi'] = 'Admin/C_DataTransaksi/';
+$route['DataTransaksi/(:any)'] = 'Admin/C_DataTransaksi/$1';
+$route['DataTransaksi/(:any)/(:any)'] = 'Admin/C_DataTransaksi/$1/$2';
 
 $route['Jamkes'] = 'Admin/C_Jamkes/';
 $route['Jamkes/(:any)'] = 'Admin/C_Jamkes/$1';
@@ -49,6 +49,8 @@ $route['Jamkes/(:any)/(:any)'] = 'Admin/C_Jamkes/$1/$2';
 $route['Antrian'] = 'Admin/C_Antrian/';
 $route['Antrian/(:any)'] = 'Admin/C_Antrian/$1';
 $route['Antrian/(:any)/(:any)'] = 'Admin/C_Antrian/$1/$2';
+
+$route['Barang'] = 'Admin/C_Barang/';
 
 $route['Hubungi'] = 'Admin/C_Hubungi/';
 $route['Hubungi/(:any)'] = 'Admin/C_Hubungi/$1';

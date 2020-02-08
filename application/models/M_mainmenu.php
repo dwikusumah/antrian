@@ -86,7 +86,7 @@ class M_mainmenu extends CI_Model {
 
 	public function countAntrian($daftar = false){
 
-		// $date = date('Y-m-d');
+		$date = date('Y-m-d');
 
 		// $this->db->select('antrian,tanggal');
 		// $this->db->from('tbl_antrian');
@@ -100,7 +100,8 @@ class M_mainmenu extends CI_Model {
 		
 		$this->db->select('antrian,tanggal');
 		$this->db->from('tbl_antrian');
-		$this->db->order_by('tanggal','desc');
+		$this->db->where('tanggal',$date);
+		$this->db->order_by('antrian','desc');
 		
 		$data = $this->db->get();
 		if($data->num_rows() > 0){
@@ -109,27 +110,27 @@ class M_mainmenu extends CI_Model {
 			return false;	
 		}
 	}
-	public function countAntrianA($daftar = false){
+	// public function countAntrianA($daftar = false){
 
-		// $date = date('Y-m-d');
+	// 	// $date = date('Y-m-d');
 
-		// $this->db->select('antrian,tanggal');
-		// $this->db->from('tbl_antrian');
-		// $this->db->where('tanggal',$date);
-		// $this->db->where('status != 1');
-		// if($daftar){
-		// 	$this->db->order_by('antrian','desc');	
-		// }else{
-		// 	$this->db->order_by('antrian','asc');
-		// }
+	// 	// $this->db->select('antrian,tanggal');
+	// 	// $this->db->from('tbl_antrian');
+	// 	// $this->db->where('tanggal',$date);
+	// 	// $this->db->where('status != 1');
+	// 	// if($daftar){
+	// 	// 	$this->db->order_by('antrian','desc');	
+	// 	// }else{
+	// 	// 	$this->db->order_by('antrian','asc');
+	// 	// }
 		
-		$data = $this->db->query("SELECT max(antrian) as maxKode FROM tbl_antrian");
-		if($data->num_rows() > 0){
-			return $data->result_array();
-		}else{
-			return false;	
-		}
-	}
+	// 	$data = $this->db->query("SELECT max(antrian) as maxKode FROM tbl_antrian");
+	// 	if($data->num_rows() > 0){
+	// 		return $data->result_array();
+	// 	}else{
+	// 		return false;	
+	// 	}
+	// }
 
 	public function insertDaftar($data){
 		return $this->db->insert('tbl_pendaftaran',$data);
