@@ -18,14 +18,14 @@ class C_Landing extends CI_Controller {
   }
 
   public function index() {
-    $data['list'] = $this->M_mainmenu->countAntrianS();  
+    $data['list'] = $this->M_mainmenu->countAntrian();  
     $data['total_antrian'] = $this->M_admin->getCountAntrian();
     $data['sisa_antrian'] = $this->M_admin->getCountSisaAntrian();
     $this->load->view("V_Landing",$data);
   }
 
   public function getAntrian(){
-    $data['list'] = $this->M_mainmenu->countAntrianS();  
+    $data['list'] = $this->M_mainmenu->countAntrian();  
     $data['total_antrian'] = $this->M_admin->getCountAntrian();
     $data['sisa_antrian'] = $this->M_admin->getCountSisaAntrian();
     echo json_encode($data);

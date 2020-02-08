@@ -19,11 +19,23 @@ class C_DataTransaksi extends CI_Controller {
 
 	public function index($status=false) {
 		// generate all data jadwal
-		$data['transaksi'] = $this->M_admin->selectTransaksi();
+		// if($this->input->post('submit')=="submit"){
+		// 	$bulan = $this->input->post('bulan');
+		// 	$tahun = $this->input->post('tahun');
+		// 	echo $bulan.",".$tahun;
+		// 	// $data['transaksi'] = $this->M_admin->selectTransaksi($bulan,$tahun);
+		// 	// $this->load->view("V_Header");
+		// 	// $this->load->view("Admin/Transaksi/V_Index",$data);
+		// 	// $this->load->view("V_Footer");
+		// }
+		// // $data['transaksi'] = $this->M_admin->selectTransaksi();
 		$this->load->view("V_Header");
-		$this->load->view("Admin/V_PengaturanAdmin");
-		$this->load->view("Admin/Transaksi/V_Index",$data);
-		$this->load->view("V_Footer");
+		$this->load->view("Admin/Transaksi/V_Index");
+		// $this->load->view("V_Footer");
+	}
+
+	public function cetak() {
+		$this->load->view('Admin/Transaksi/V_Cetak');
 	}
 
 

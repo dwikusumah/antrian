@@ -72,7 +72,7 @@ class M_admin extends CI_Model {
 		$select = array('*');
 		$this->db->select($select);
 		$this->db->from('tbl_antrian');
-		// $this->db->where('tanggal',$date);
+		$this->db->where('tanggal',$date);
 		$this->db->where('status','0');
 		$this->db->order_by('antrian','asc');
 		
@@ -162,11 +162,11 @@ class M_admin extends CI_Model {
 		}	
 	}
 
-	public function selectTransaksi(){
+	public function selectTransaksi($bulan,$tahun){
 		// $this->db->select('tbl_jadwal.*,tbl_staff.*');;
 		// $this->db->from('tbl_jadwal');
 		// $this->db->join('tbl_staff','tbl_staff.id_staff = tbl_jadwal.id_staff', 'inner');
-		$data = $this->db->get('tbl_transaksi');
+		$data = $this->db->query("SELECT * FROM tbl_transaksi WHERE year(tanggal)='$tahun' AND month(tanggal)='$bulan'");
 		if($data->num_rows() > 0){
 			return $data->result();
 		}else{
