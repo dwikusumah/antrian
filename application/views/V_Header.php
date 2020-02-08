@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<title>Aplikasi Antrian</title>
+	<title>Toko Koperasi Kartika Wirotama</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <!-- 	<meta http-equiv="refresh" content="60"> -->
@@ -29,7 +29,7 @@
 <body>
 	<div id="wrapper">
 		<nav class="navbar navbar-default navbar-fixed-top">
-			<div class="brand"><span>Aplikasi Antrian</span></div>
+			<div class="brand"><span>Toko Koperasi Kartika Wirotama</span></div>
 			<div class="container-fluid">
 				<div class="navbar-btn">
 					<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
