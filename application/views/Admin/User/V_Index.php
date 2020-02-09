@@ -17,7 +17,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-10">
-					<h3 class="page-title">Daftar Akun</h3>
+					<h3 class="page-title">Atur Pegawai</h3>
 				</div>
 				<div class="col-md-2" align="right">
         			<a href="<?php echo base_url('User/inputUser'); ?>" class="btn btn-raised btn-primary"><span class="fa fa-plus" style="margin-right: 10px;"></span>Tambah</a>

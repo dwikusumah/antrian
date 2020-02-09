@@ -15,7 +15,7 @@
 <div class="main">
 	<div class="main-content">
 		<div class="container-fluid">
-			<h3 class="page-title">Edit Akun</h3>
+			<h3 class="page-title">Atur Pegawai</h3>
 			<div class="row">
 				<div class="col-md-12">
 					<div class="panel">

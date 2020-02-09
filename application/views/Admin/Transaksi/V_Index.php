@@ -17,7 +17,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-10">
-					<h3 class="page-title">Daftar Barang</h3>
+					<h3 class="page-title">Daftar Transaksi</h3>
 				</div>
 				<div class="col-md-2" align="right">
 					<?php 

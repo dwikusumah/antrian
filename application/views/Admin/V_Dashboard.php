@@ -12,6 +12,7 @@
 		</nav>
 	</div>
 </div>
+
 <div class="main">
 	<div class="main-content">
 		<div class="container-fluid">
