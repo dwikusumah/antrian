@@ -101,7 +101,7 @@ class M_mainmenu extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('tbl_antrian');
 		$this->db->where('tanggal',$tanggal);
-		$this->db->order_by('antrian','desc');
+		$this->db->order_by('antrian','asc');
 		
 		$data = $this->db->get();
 		if($data->num_rows() > 0){

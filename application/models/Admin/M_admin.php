@@ -249,12 +249,13 @@ class M_admin extends CI_Model {
 		}
 	}
 
-	public function getAntrianDaftar(){		
+	public function getAntrianDaftar(){
+		$tanggal = date('Y-m-d');
 		// $this->db->select('*');
 		// $this->db->from('tbl_antrian');
 		// $this->db->join('tbl_pendaftaran','tbl_antrian.id_antrian = tbl_pendaftaran.id_antrian', 'outter');
 		// $this->db->where('tbl_antrian.id_antrian',$id);
-		$data = $this->db->query('SELECT * FROM tbl_antrian ORDER BY tanggal DESC LIMIT 1 ');
+		$data = $this->db->query("SELECT * FROM tbl_antrian WHERE tanggal='$tanggal' ORDER BY antrian DESC LIMIT 1 ");
 		if($data->num_rows() > 0){
 			return $data->result();
 		}else{
