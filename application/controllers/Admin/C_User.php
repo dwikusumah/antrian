@@ -113,7 +113,6 @@ public function userEdit($id = false) {
 		$akses = $this->input->post('akses');
 		$data  = array(
 				'username' => $username, 
-				'password' => $password,
 				'nama' => $nama,
 				'akses' => $akses
 				);
