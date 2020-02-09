@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> fb43e0a635282a97e1b1c44fbb934dfb0b0d61d3
 <div id="sidebar-nav" class="sidebar">
 	<div class="sidebar-scroll">
 		<nav>
