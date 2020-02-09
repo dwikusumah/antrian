@@ -101,7 +101,34 @@ class M_mainmenu extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('tbl_antrian');
 		$this->db->where('tanggal',$tanggal);
+		$this->db->where('status','0');
 		$this->db->order_by('antrian','asc');
+		
+		$data = $this->db->get();
+		if($data->num_rows() > 0){
+			return $data->result_array();
+		}else{
+			return false;	
+		}
+	}
+	public function countAntrianDaftar($daftar = false){
+
+		$tanggal = date('Y-m-d');
+
+		// $this->db->select('antrian,tanggal');
+		// $this->db->from('tbl_antrian');
+		// $this->db->where('tanggal',$date);
+		// $this->db->where('status != 1');
+		// if($daftar){
+		// 	$this->db->order_by('antrian','desc');	
+		// }else{
+		// 	$this->db->order_by('antrian','asc');
+		// }
+		
+		$this->db->select('*');
+		$this->db->from('tbl_antrian');
+		$this->db->where('tanggal',$tanggal);
+		$this->db->order_by('antrian','desc');
 		
 		$data = $this->db->get();
 		if($data->num_rows() > 0){

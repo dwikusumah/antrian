@@ -25,7 +25,7 @@ class C_Generate extends CI_Controller {
 		// echo $data;
 		$antrian = '';
 		
-		if($data = $this->M_mainmenu->countAntrian(true)){
+		if($data = $this->M_mainmenu->countAntrianDaftar(true)){
 			$kodeawal = $data[0]['antrian'];
 
 			$kodeawal = substr($kodeawal,1,3);
