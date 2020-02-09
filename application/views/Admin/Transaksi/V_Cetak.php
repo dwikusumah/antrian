@@ -1,3 +1,23 @@
+<link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url('assets/img/apple-icon.webp'); ?>">
+<link rel="icon" type="image/png" sizes="96x96" href="<?php echo base_url('assets/img/favicon.webp'); ?>">
+
+<nav class="navbar  fixed-top navbar-expand-lg" id="sectionsNav">
+    <div class="container">
+      <div class="navbar-translate"> <a class="navbar-brand" href="#">
+          Toko Koperasi Kartika Wirotama</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="navbar-toggler-icon"></span> <span class="navbar-toggler-icon"></span> <span class="navbar-toggler-icon"></span> </button>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo base_url('Transaksi'); ?>"> <i class="material-icons"></i> Kembali </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,7 +28,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Cetak Transaksi</title>
   </head>
   <body>
     <!-- <?php 

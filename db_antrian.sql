@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2020 at 04:33 PM
+-- Generation Time: Feb 10, 2020 at 12:20 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tbl_antrian` (
   `id_antrian` int(11) NOT NULL,
-  `tanggal` timestamp NULL DEFAULT current_timestamp(),
+  `tanggal` date DEFAULT NULL,
   `antrian` varchar(255) DEFAULT NULL,
   `status` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -40,19 +40,28 @@ CREATE TABLE `tbl_antrian` (
 --
 
 INSERT INTO `tbl_antrian` (`id_antrian`, `tanggal`, `antrian`, `status`) VALUES
-(158, '2020-02-07 13:08:03', 'A001', 1),
-(159, '2020-02-07 13:08:06', 'A002', 1),
-(160, '2020-02-07 13:08:07', 'A003', 1),
-(161, '2020-02-07 13:08:09', 'A004', 1),
-(163, '2020-02-07 13:08:12', 'A006', 1),
-(164, '2020-02-07 13:08:13', 'A007', 1),
-(165, '2020-02-07 13:08:14', 'A008', 1),
-(166, '2020-02-07 13:08:15', 'A009', 1),
-(167, '2020-02-07 13:08:17', 'A010', 0),
-(168, '2020-02-07 13:08:18', 'A011', 0),
-(169, '2020-02-07 13:08:20', 'A012', 0),
-(170, '2020-02-07 14:30:02', 'A013', 0),
-(171, '2020-02-07 14:30:57', 'A014', 0);
+(177, '2020-02-07', 'A002', 0),
+(178, '2020-02-07', 'A003', 0),
+(179, '2020-02-06', 'A001', 1),
+(180, '2020-02-09', 'A001', 1),
+(181, '2020-02-09', 'A002', 1),
+(182, '2020-02-09', 'A003', 1),
+(183, '2020-02-09', 'A004', 1),
+(184, '2020-02-09', 'A005', 1),
+(185, '2020-02-09', 'A006', 1),
+(186, '2020-02-09', 'A007', 1),
+(187, '2020-02-09', 'A008', 1),
+(188, '2020-02-09', 'A009', 0),
+(189, '2020-02-09', 'A010', 0),
+(190, '2020-02-09', 'A011', 0),
+(191, '2020-02-09', 'A002', 1),
+(192, '2020-02-09', 'A002', 1),
+(193, '2020-02-09', 'A002', 1),
+(194, '2020-02-09', 'A002', 1),
+(195, '2020-02-09', 'A002', 1),
+(196, '2020-02-09', 'A002', 1),
+(197, '2020-02-09', 'A012', 0),
+(198, '2020-02-09', 'A013', 0);
 
 -- --------------------------------------------------------
 
@@ -73,10 +82,11 @@ CREATE TABLE `tbl_barang` (
 --
 
 INSERT INTO `tbl_barang` (`id`, `nama_barang`, `stok`, `jenis_barang`, `harga`) VALUES
-(123456, 'Kuaci', 18, 'snack', 8000),
-(234567, 'Roti Tawar', 2, 'makanan', 10000),
-(435435, 'Good Time', 13, 'Snack', 7000),
-(546464, 'Coca cola', 29, 'Minuman', 4500);
+(123456, 'Kuaci', 16, 'snack', 8000),
+(234567, 'Roti Tawar', 6, 'makanan', 10000),
+(435435, 'Good Time', 8, 'Snack', 7000),
+(546464, 'Coca cola', 24, 'Minuman', 4500),
+(565552, 'Nu GreenTea', 193, 'Minuman', 5000);
 
 -- --------------------------------------------------------
 
@@ -252,7 +262,12 @@ INSERT INTO `tbl_transaksi` (`id_transaksi`, `tanggal`, `username`, `total`) VAL
 ('TRK00010', '2020-02-07 13:10:41', 'kasir', 18000),
 ('TRK00011', '2020-02-07 13:16:01', 'kasir', 17000),
 ('TRK00012', '2020-02-07 13:57:46', 'kasir', 18000),
-('TRK00013', '2020-02-07 13:58:29', 'kasir', 29500);
+('TRK00013', '2020-02-07 13:58:29', 'kasir', 29500),
+('TRK00014', '2020-02-08 03:13:53', 'kasir', 50500),
+('TRK00015', '2020-02-08 03:14:14', 'kasir', 8000),
+('TRK00016', '2020-02-08 08:20:28', 'kasir', 26000),
+('TRK00017', '2020-02-08 10:49:30', 'kasir', 10000),
+('TRK00018', '2020-02-08 11:39:31', 'kasir', 44000);
 
 -- --------------------------------------------------------
 
@@ -300,7 +315,18 @@ INSERT INTO `tbl_transaksi_detail` (`id`, `id_transaksi`, `id_barang`, `jumlah`,
 (26, 'TRK00013', 123456, 1, 8000, 8000),
 (27, 'TRK00013', 234567, 1, 10000, 10000),
 (28, 'TRK00013', 435435, 1, 7000, 7000),
-(29, 'TRK00013', 546464, 1, 4500, 4500);
+(29, 'TRK00013', 546464, 1, 4500, 4500),
+(30, 'TRK00014', 234567, 1, 10000, 10000),
+(31, 'TRK00014', 123456, 1, 8000, 8000),
+(32, 'TRK00014', 435435, 4, 7000, 28000),
+(33, 'TRK00014', 546464, 1, 4500, 4500),
+(34, 'TRK00015', 123456, 1, 8000, 8000),
+(35, 'TRK00016', 234567, 1, 10000, 10000),
+(36, 'TRK00016', 435435, 1, 7000, 7000),
+(37, 'TRK00016', 546464, 2, 4500, 9000),
+(38, 'TRK00017', 234567, 1, 10000, 10000),
+(39, 'TRK00018', 565552, 7, 5000, 35000),
+(40, 'TRK00018', 546464, 2, 4500, 9000);
 
 -- --------------------------------------------------------
 
@@ -322,11 +348,9 @@ CREATE TABLE `tbl_user` (
 
 INSERT INTO `tbl_user` (`id_user`, `username`, `password`, `nama`, `akses`) VALUES
 (4, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'Admin'),
-(6, 'kasir', 'c7911af3adbd12a035b289556d96470a', 'kasir', 'Kasir'),
-(9, 'mangskuy', '5528684ee6cbd4ee6d5ff0b7753fd607', 'mamang', 'Kasir'),
-(10, '1234', '81dc9bdb52d04dc20036dbd8313ed055', '1234', 'Kasir'),
-(11, '123', '6777f802749c8b4ea805d0dbb1b88455', '123', 'Kasir'),
-(12, '456', '250cf8b51c773f3f8dc8b4be867a9a02', '456', 'Kasir');
+(10, 'vriska54', '81dc9bdb52d04dc20036dbd8313ed055', 'Vriska', 'Kasir'),
+(11, 'suryana87', '6777f802749c8b4ea805d0dbb1b88455', 'Suryana M', 'Kasir'),
+(13, 'kasir', 'c7911af3adbd12a035b289556d96470a', 'Ahmad', 'Kasir');
 
 --
 -- Indexes for dumped tables
@@ -407,7 +431,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_antrian`
 --
 ALTER TABLE `tbl_antrian`
-  MODIFY `id_antrian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=172;
+  MODIFY `id_antrian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=199;
 
 --
 -- AUTO_INCREMENT for table `tbl_hubungi`
@@ -449,13 +473,13 @@ ALTER TABLE `tbl_staff`
 -- AUTO_INCREMENT for table `tbl_transaksi_detail`
 --
 ALTER TABLE `tbl_transaksi_detail`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

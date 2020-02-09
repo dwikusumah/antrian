@@ -11,6 +11,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 /*Admin Stuff*/
 $route['DashboardAdmin'] = 'Admin/C_Dashboard';
+$route['Transaksi'] = 'Admin/C_DataTransaksi/index';
 $route['Admin'] = 'Admin/C_Pegawai/';
 $route['Admin/(:any)'] = 'Admin/C_Pegawai/$1';
 $route['Admin/(:any)/(:any)'] = 'Admin/C_Pegawai/$1/$2';

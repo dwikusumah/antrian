@@ -38,7 +38,6 @@ class C_DataTransaksi extends CI_Controller {
 		$this->load->view('Admin/Transaksi/V_Cetak');
 	}
 
-
 // 	public function inputJadwal() {
 // 		$data['staff'] = $this->M_admin->selectPegawai();
 // 		$this->load->view("V_Header");
